@@ -1,0 +1,5 @@
+Common R command Highlights
+====================================
+
+
+Here a couple key ones I want to go over quickly right now to make sure everyone is aware of them. 

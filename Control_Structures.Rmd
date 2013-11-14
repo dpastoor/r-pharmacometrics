@@ -1,2 +1,88 @@
 Control Structors 
 ========================================================
+
+Testing Conditions
+
+```
+if
+if, else if 
+if, else if, ..., else
+```
+
+Have the structure
+
+```
+if(condition) {
+    ## do stuff
+} else if (conditition2) {
+    ## do other stuff
+    } else {
+    ## do something in for other condition
+}
+```
+
+You don't have to use `else` statments
+
+```
+if (condition1)
+if (condition2)
+if (condition3)
+...
+```
+
+is perfectly valid.
+
+* `ifelse` - specialized test with the format `ifelse(Test, Yes, no)`
+
+* `for` looping structure
+
+Loops can be constructed based on a specified vector length or by specific indices
+
+```
+for (i in 1:5) {
+    store_results[i] <- do_something()
+}
+```
+
+While you may be more familiar with the construct:
+
+```
+for(i in 1:length(x)) {
+     results[i] <- do_something(x[i])
+}
+```
+
+This is actually a "bad" habit that can run you into trouble with objects of length(0)
+
+`seq_along` is a 'safer' option that has the exact same effect if you're starting from the first indice, with the added benefit of failing more gracefully.
+
+* `while` - execute loop *while* tested condition is true. Often used if you need to evaluate until a certain condition is met. **danger**: can potentially result in infinite loops if not written properly or if the tested condition is never met.
+
+```{r }
+count <- 0
+while(count < 10) {
+    print(count)
+    count <- count + 1
+}
+```
+
+* `next` - skip iteration of loop
+
+`next` can be used to skip iterations in a loop 
+
+```{r }
+for(i in 1:10) {
+    if (i < 3) next
+    print(i)
+}
+```
+
+`break` break the execution of a loop
+
+`return` - exit function
+
+
+## Assignments
+* within theoph add a new column called `ISEVEN` - for all subjucts with even ID numbers assign a value 1, for all odds assign value 0
+* write a creatinine clearance calculator function - use it to calculate the CRCL for some simulated data in a vectorized manner
+* 

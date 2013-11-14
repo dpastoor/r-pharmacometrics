@@ -1,0 +1,24 @@
+Best Practices
+======================================================
+
+## Naming
+
+### Files
+
+### Identifiers
+
+## Coding Style
+
+### Syntax
+
+### Assignment
+
+### Braces
+
+### Line Length
+
+### Indentation
+
+### Commenting
+
+

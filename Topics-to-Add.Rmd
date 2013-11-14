@@ -1,0 +1,12 @@
+Topics to Add
+=======================
+
+## Intro to data manipulation
+* df$x[with(df, y ==b & ...)] pg 100 metrum
+* change merging data samples
+
+
+## Function Writing
+* Side effects (pg. 118 R in a nutshell)
+
+

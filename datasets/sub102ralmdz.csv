@@ -1,0 +1,86 @@
+Day,Time,Conc,Analyte,Dose raltegravir,Dose type,Conc,Analyte,,Conc,Analyte,Dose midazolam,Dose type,Conc,Analyte
+,hr,ng/mL,,ng,,ng/mL,,,ng/mL,,ng,,ng/mL,
+0,0,0,Raltegravir,400000000,Oral (extravascular) ,0,Raltegravir metabolite,,5.16,Midazolam,750000,IV bolus,3.5,Midazolam metabolite
+0,0.25,81.59,Raltegravir,,,12.26,Raltegravir metabolite,,157.65,Midazolam,,,4.75,Midazolam metabolite
+0,0.5,90.43,Raltegravir,,,25.81,Raltegravir metabolite,,47.39,Midazolam,,,4.5,Midazolam metabolite
+0,0.75,92.27,Raltegravir,,,33.08,Raltegravir metabolite,,21.24,Midazolam,,,5.3,Midazolam metabolite
+0,1,94.79,Raltegravir,,,33.51,Raltegravir metabolite,,18.45,Midazolam,,,4.4,Midazolam metabolite
+0,1.5,3131.66,Raltegravir,,,416.39,Raltegravir metabolite,,15.64,Midazolam,,,4.68,Midazolam metabolite
+0,2,4556.25,Raltegravir,,,829.52,Raltegravir metabolite,,11.84,Midazolam,,,4.29,Midazolam metabolite
+0,2.5,3806.65,Raltegravir,,,946.69,Raltegravir metabolite,,10.03,Midazolam,,,3.6,Midazolam metabolite
+0,3,2841.05,Raltegravir,,,932.83,Raltegravir metabolite,,7.58,Midazolam,,,3.5,Midazolam metabolite
+0,3.5,1893.95,Raltegravir,,,742.73,Raltegravir metabolite,,7.56,Midazolam,,,2.99,Midazolam metabolite
+0,4,1113.93,Raltegravir,,,547.8,Raltegravir metabolite,,5.76,Midazolam,1500000,Oral (extravascular) ,2.75,Midazolam metabolite
+0,4.25,926.22,Raltegravir,,,509.3,Raltegravir metabolite,,6.68,Midazolam,,,2.88,Midazolam metabolite
+0,4.5,693.1,Raltegravir,,,435.2,Raltegravir metabolite,,12.33,Midazolam,,,6.27,Midazolam metabolite
+0,4.75,635.54,Raltegravir,,,405.32,Raltegravir metabolite,,11.92,Midazolam,,,5.89,Midazolam metabolite
+0,5,494.42,Raltegravir,,,346.73,Raltegravir metabolite,,10.76,Midazolam,,,5.39,Midazolam metabolite
+0,5.5,502.42,Raltegravir,,,290.6,Raltegravir metabolite,,12.47,Midazolam,,,6.68,Midazolam metabolite
+0,6,286.79,Raltegravir,,,212.99,Raltegravir metabolite,,8.41,Midazolam,,,4.49,Midazolam metabolite
+0,7,172.63,Raltegravir,,,151.75,Raltegravir metabolite,,6.31,Midazolam,,,3.37,Midazolam metabolite
+0,8,110.22,Raltegravir,,,103.25,Raltegravir metabolite,,5.29,Midazolam,,,2.87,Midazolam metabolite
+0,10,49.36,Raltegravir,,,45.18,Raltegravir metabolite,,3.76,Midazolam,,,2.3,Midazolam metabolite
+0,12,38.06,Raltegravir,,,25.29,Raltegravir metabolite,,3.6,Midazolam,,,2.09,Midazolam metabolite
+7,0,0,Raltegravir,400000000,Oral (extravascular) ,0,Raltegravir metabolite,,2.68,Midazolam,750000,IV bolus,2.83,Midazolam metabolite
+7,0.25,25.03,Raltegravir,,,n.d.,Raltegravir metabolite,,202.58,Midazolam,,,2.47,Midazolam metabolite
+7,0.5,119.78,Raltegravir,,,13.18,Raltegravir metabolite,,38.72,Midazolam,,,2.6,Midazolam metabolite
+7,0.75,216.56,Raltegravir,,,33.32,Raltegravir metabolite,,29.38,Midazolam,,,1.86,Midazolam metabolite
+7,1,451.58,Raltegravir,,,63.51,Raltegravir metabolite,,22.61,Midazolam,,,1.57,Midazolam metabolite
+7,1.5,580.2,Raltegravir,,,138.72,Raltegravir metabolite,,22.74,Midazolam,,,1.56,Midazolam metabolite
+7,2,350.77,Raltegravir,,,121.24,Raltegravir metabolite,,17.81,Midazolam,,,n.d.,Midazolam metabolite
+7,2.5,276.07,Raltegravir,,,97.41,Raltegravir metabolite,,12.92,Midazolam,,,n.d.,Midazolam metabolite
+7,3,372.85,Raltegravir,,,88.02,Raltegravir metabolite,,12.44,Midazolam,,,n.d.,Midazolam metabolite
+7,3.5,860.85,Raltegravir,,,165.98,Raltegravir metabolite,,11.44,Midazolam,,,n.d.,Midazolam metabolite
+7,4,724.96,Raltegravir,,,184.06,Raltegravir metabolite,,11.28,Midazolam,1500000,Oral (extravascular) ,n.d.,Midazolam metabolite
+7,4.25,635.15,Raltegravir,,,175.8,Raltegravir metabolite,,12.56,Midazolam,,,n.d.,Midazolam metabolite
+7,4.5,607.34,Raltegravir,,,169.39,Raltegravir metabolite,,36.75,Midazolam,,,1.74,Midazolam metabolite
+7,4.75,559.64,Raltegravir,,,153.04,Raltegravir metabolite,,40.22,Midazolam,,,1.62,Midazolam metabolite
+7,5,507.61,Raltegravir,,,147.16,Raltegravir metabolite,,39.87,Midazolam,,,1.75,Midazolam metabolite
+7,5.5,461.09,Raltegravir,,,135.62,Raltegravir metabolite,,37.53,Midazolam,,,1.72,Midazolam metabolite
+7,6,318.96,Raltegravir,,,111.1,Raltegravir metabolite,,29.3,Midazolam,,,1.65,Midazolam metabolite
+7,7,192.18,Raltegravir,,,88.5,Raltegravir metabolite,,23.68,Midazolam,,,1.08,Midazolam metabolite
+7,8,124.57,Raltegravir,,,66.5,Raltegravir metabolite,,26.17,Midazolam,,,5.7,Midazolam metabolite
+7,10,58.25,Raltegravir,,,28.35,Raltegravir metabolite,,17.64,Midazolam,,,n.d.,Midazolam metabolite
+7,12,34.78,Raltegravir,,,13.52,Raltegravir metabolite,,15.83,Midazolam,,,n.d.,Midazolam metabolite
+14,0,0,Raltegravir,400000000,Oral (extravascular) ,0,Raltegravir metabolite,,3.39,Midazolam,750000,IV bolus,3.07,Midazolam metabolite
+14,0.25,91.48,Raltegravir,,,12.45,Raltegravir metabolite,,304.42,Midazolam,,,5.06,Midazolam metabolite
+14,0.5,493.78,Raltegravir,,,48.68,Raltegravir metabolite,,39.41,Midazolam,,,4.24,Midazolam metabolite
+14,0.75,1271.03,Raltegravir,,,125.29,Raltegravir metabolite,,42.76,Midazolam,,,3.21,Midazolam metabolite
+14,1,1678.08,Raltegravir,,,241.17,Raltegravir metabolite,,28.33,Midazolam,,,2.12,Midazolam metabolite
+14,1.5,987.66,Raltegravir,,,252.45,Raltegravir metabolite,,30.17,Midazolam,,,2.49,Midazolam metabolite
+14,2,1275.3,Raltegravir,,,262.92,Raltegravir metabolite,,35.38,Midazolam,,,n.d.,Midazolam metabolite
+14,2.5,2328.7,Raltegravir,,,374.16,Raltegravir metabolite,,20.45,Midazolam,,,n.d.,Midazolam metabolite
+14,3,3381.75,Raltegravir,,,521.94,Raltegravir metabolite,,21.08,Midazolam,,,1.73,Midazolam metabolite
+14,3.5,3486.64,Raltegravir,,,694.09,Raltegravir metabolite,,11.26,Midazolam,,,1.33,Midazolam metabolite
+14,4,2167.41,Raltegravir,,,614.24,Raltegravir metabolite,,10.53,Midazolam,1500000,Oral (extravascular) ,1.09,Midazolam metabolite
+14,4.25,1818.59,Raltegravir,,,653.16,Raltegravir metabolite,,15.24,Midazolam,,,1.33,Midazolam metabolite
+14,4.5,1208.58,Raltegravir,,,470.82,Raltegravir metabolite,,20.37,Midazolam,,,1.23,Midazolam metabolite
+14,4.75,995.52,Raltegravir,,,439.11,Raltegravir metabolite,,30.56,Midazolam,,,1.34,Midazolam metabolite
+14,5,963.17,Raltegravir,,,410.7,Raltegravir metabolite,,35.81,Midazolam,,,1.2,Midazolam metabolite
+14,5.5,661.04,Raltegravir,,,340.93,Raltegravir metabolite,,32.61,Midazolam,,,1.19,Midazolam metabolite
+14,6,435.86,Raltegravir,,,252.84,Raltegravir metabolite,,30.41,Midazolam,,,1.54,Midazolam metabolite
+14,7,237.41,Raltegravir,,,167.09,Raltegravir metabolite,,23.69,Midazolam,,,n.d.,Midazolam metabolite
+14,8,125.01,Raltegravir,,,102.95,Raltegravir metabolite,,20.79,Midazolam,,,n.d.,Midazolam metabolite
+14,10,44.63,Raltegravir,,,36.33,Raltegravir metabolite,,17.01,Midazolam,,,n.d.,Midazolam metabolite
+14,12,23.84,Raltegravir,,,14.88,Raltegravir metabolite,,17.85,Midazolam,,,n.d.,Midazolam metabolite
+32,0,0,Raltegravir,400000000,Oral (extravascular) ,0,Raltegravir metabolite,,0,Midazolam,750000,IV bolus,1.12,Midazolam metabolite
+32,0.25,65.12,Raltegravir,,,11,Raltegravir metabolite,,310.97,Midazolam,,,2.7,Midazolam metabolite
+32,0.5,188.54,Raltegravir,,,31.91,Raltegravir metabolite,,74.82,Midazolam,,,2.36,Midazolam metabolite
+32,0.75,1541.91,Raltegravir,,,127.96,Raltegravir metabolite,,44.16,Midazolam,,,1.84,Midazolam metabolite
+32,1,3934.47,Raltegravir,,,528.24,Raltegravir metabolite,,30.09,Midazolam,,,3.07,Midazolam metabolite
+32,1.5,4693.78,Raltegravir,,,1163.37,Raltegravir metabolite,,20.26,Midazolam,,,2.23,Midazolam metabolite
+32,2,4086.69,Raltegravir,,,1500.52,Raltegravir metabolite,,14.01,Midazolam,,,2.46,Midazolam metabolite
+32,2.5,3887.97,Raltegravir,,,1643.29,Raltegravir metabolite,,13.53,Midazolam,,,2.05,Midazolam metabolite
+32,3,3686.33,Raltegravir,,,1663.2,Raltegravir metabolite,,11.97,Midazolam,,,2.08,Midazolam metabolite
+32,3.5,2334.78,Raltegravir,,,1437.73,Raltegravir metabolite,,12.5,Midazolam,,,2,Midazolam metabolite
+32,4,1506.71,Raltegravir,,,1253.28,Raltegravir metabolite,,8.35,Midazolam,1500000,Oral (extravascular) ,1.78,Midazolam metabolite
+32,4.25,1215.25,Raltegravir,,,1121.6,Raltegravir metabolite,,10.76,Midazolam,,,5.62,Midazolam metabolite
+32,4.5,917.63,Raltegravir,,,969.12,Raltegravir metabolite,,11.38,Midazolam,,,6.67,Midazolam metabolite
+32,4.75,630.25,Raltegravir,,,830.45,Raltegravir metabolite,,7.67,Midazolam,,,4.4,Midazolam metabolite
+32,5,552.16,Raltegravir,,,770.99,Raltegravir metabolite,,8.35,Midazolam,,,3.41,Midazolam metabolite
+32,5.5,409.08,Raltegravir,,,650.93,Raltegravir metabolite,,7.53,Midazolam,,,2.41,Midazolam metabolite
+32,6,301.24,Raltegravir,,,501.71,Raltegravir metabolite,,5.32,Midazolam,,,1.75,Midazolam metabolite
+32,7,144.96,Raltegravir,,,318.33,Raltegravir metabolite,,5.38,Midazolam,,,n.d.,Midazolam metabolite
+32,8,73.99,Raltegravir,,,174.8,Raltegravir metabolite,,3.87,Midazolam,,,n.d.,Midazolam metabolite
+32,10,37.34,Raltegravir,,,92.05,Raltegravir metabolite,,4.68,Midazolam,,,n.d.,Midazolam metabolite
+32,12,26.99,Raltegravir,,,33.45,Raltegravir metabolite,,3.69,Midazolam,,,n.d.,Midazolam metabolite

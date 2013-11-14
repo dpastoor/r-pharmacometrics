@@ -1,2 +1,6 @@
 Pragmatic Programming
 ========================================================
+
+Uwe Ligges maxim:
+
+Computers are cheap, and thinking hurts
