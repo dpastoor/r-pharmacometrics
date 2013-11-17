@@ -4,3 +4,29 @@ Pragmatic Programming
 Uwe Ligges maxim:
 
 Computers are cheap, and thinking hurts
+
+"Make your functions as simple as possible. Simple has many advantages: Simple functions are likely to be human ecient: they will be easy to understand and to modify. Simple functions are likely to be computer efficient. Simple functions are less likely to be buggy , and bugs will be easier to fix. (Perhaps ironically) simple functions may b e more general, thinking about the heart of the matter often broadens the application." (Burns 2011:33)
+
+"We want our functions to be correct. Not all functions are correct. The results from specific calls can be put in to 4 categories: 
+1. Correct. 
+2. An error occurs that is clearly idenitifed. 
+3. An obscure error o ccurs. 
+4. An incorrect value is returned." (Burns 2011:35)
+
+Solve the Problem Here are four steps for general problem solving (though of course we have programming in mind). 
+
+List the starting ingredients 
+State the desired results 
+Break the journey from step 1 to step 2 into subproblems 
+Put the subproblem solutions together 
+This is a recursive algorithm --- we do the same four steps on each of the subproblems, and on their subproblems.
+
+The hard part is step 3 (but sometimes step 2 is murky). This is another case of abstraction, of carving up reality. There may be multiple possible combinations of subproblems --- your task is to create a reasonable combination. Avoid feeling that you must solve the whole thing in one go. That's the recipe for being overwhelmed and stuck.
+
+Our natural inclination is to go from beginning to end when breaking up a problem. If that is not bearing fruit, try working backwards from the end. The more you practice breaking a problem into subproblems, the better you get at it. This is important enough to practice deliberately. This section should be surrounded by flashing lights. Breaking a problem into pieces seems to be the central block with programming for most people. Great acts are done by a series of small deeds
+
+We always want to jump in and attack problems directly. However, the real problem is often not what we first think. This is especially true when we're solving someone else's problem. It is ever so common for someone to ask for some specific technical thing which turns out not to address their actual concern, or to be a poor approach to it. Before you dig into a problem, make sure you know what the problem is. 
+I count three possible outcomes: 
+* the real problem is easier than the original --- you have saved time and trauma 
+* the real problem is harder than the original --- but you've avoided working on the wrong one 
+* the original problem is the real problem --- but now you can tackle it with confidence

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>Debugging-Functions</title></head><body><h1>
+<a name="debugging-functions" class="anchor" href="#debugging-functions"><span class="octicon octicon-link"></span></a>Debugging Functions</h1>
+
+<p>TODO: split to different headers (debugging/int-function-writing)</p>
+
+<p>There are 3 basic ways to indicate to an end-user that something isn't right inside a function - be it due to an improper calculation or improper input.</p>
+
+<ul>
+<li>
+<strong>message</strong>: relay a generic notification produced by <code>message()</code>
+</li>
+<li>
+<strong>warning</strong>: An indication that something is wrong but not enough to halt execution of the function. Generated with <code>warning()</code>
+</li>
+<li>
+<strong>error</strong> An indication that a fatal error has occured - stops execution. Generated with <code>stop()</code> function</li>
+</ul><p>Given a stoplight analogy - a message is like reading an alert sign over the light, a warning is a "yellow light" and error is a "red light"</p>
+
+<p>TODO: more about warning messages and testing input</p>
+
+<p>R has a couple useful built-in tools for debugging:</p>
+
+<ul>
+<li>
+<code>traceback</code> - prints out stack of function calls after an error occurs</li>
+<li>
+<code>debug</code> - flags function for "debug" mode to allow function execution to proceed one line at time</li>
+<li>
+<code>browser</code> - suspends execution of function wherever it is called and puts function into debug mode</li>
+<li>
+<code>trace</code> - allows insertion of debugging code into function at specific locations</li>
+<li>
+<code>recover</code> - to modify error behavior to browse function call stack</li>
+</ul><p>There is also the <code>message</code> and <code>print/cat</code> techniques - that are less elegant but work for basic situations</p>
+
+<p>NOTE: change rmse example slightly to make it more 'real'</p>
+
+<div class="highlight highlight-r"><pre><span class="c">deviation &lt;- function(x)x-mean(x)</span>
+<span class="c">squared &lt;- function(x)x</span>
+<span class="c">**</span>
+<span class="c">2</span>
+<span class="c">root &lt;- function(x)x</span>
+<span class="c">**</span>
+<span class="c">0.5</span>
+<span class="c">values &lt;- c(1,'NA',3,4,5)</span>
+<span class="c">root(mean(squared(deviation(values))))</span>
+
+<span class="c">traceback()</span>
+</pre></div>
+
+<div class="highlight highlight-r"><pre><span class="c">j &lt;- function(i = 5) {</span>
+<span class="c">  if (i == 1) "a" + 1</span>
+<span class="c">  j(i - 1)</span>
+<span class="c">}</span>
+<span class="c">j()</span>
+</pre></div>
+
+<h2>
+<a name="debugging-example-time-todo-snap-shot-examples-for-future-references" class="anchor" href="#debugging-example-time-todo-snap-shot-examples-for-future-references"><span class="octicon octicon-link"></span></a>debugging example time TODO: snap-shot examples for future references</h2>
+
+<p>while debugging a couple things you can use to navigate</p>
+
+<ul>
+<li>
+<code>ls()</code> will list the contents in the environment
+
+<ul>
+<li>you can call these objects to see what their current value is</li>
+</ul>
+</li>
+<li>can quit out of debugging with <code>Q</code>
+</li>
+<li>proceed to next line in debug with 'n'</li>
+<li>continue code execution <code>c</code> - similar to <code>n</code> but may allow for multiple lines of code to execute before stopping (will run all code inside loop or function before pausing)
+While in debug mode you can run code on objects in the environment as you would otherwise</li>
+</ul><p>NOTE: to modify as well</p>
+
+<div class="highlight highlight-r"><pre><span class="c">deviation &lt;- function(x){</span>
+<span class="c">if(!is.numeric(x))stop('x must be numeric')</span>
+<span class="c">else if(any(is.na(x)))warning('removing NA values in x')</span>
+<span class="c">else message('calculating differences from the reference value</span>
+<span class="c">...')</span>
+<span class="c">return(x-mean(x,na.rm=TRUE))</span>
+<span class="c">}</span>
+</pre></div>
+
+<p><code>invisible(x)</code> in place of <code>return</code></p>
+
+<p>Wouldn't it be nice it we could have the results stored but not have them printed!</p>
+
+<div class="highlight highlight-r"><pre><span class="c">sim_number &lt;- function(x) {</span>
+<span class="c">    cat("You are running:", x, "simulations")</span>
+<span class="c">    x+5 #imagine simulation function here instead</span>
+<span class="c">}</span>
+</pre></div>
+
+<div class="highlight highlight-r"><pre><span class="c">rep_maker &lt;- function(df, x) {</span>
+<span class="c">    cat("You are creating:", x, "copies")</span>
+<span class="c">    outputvector &lt;- numeric(length(df)*x)</span>
+<span class="c">    lapply(1:x function(x))  #imagine simulation function here instead</span>
+<span class="c">}</span>
+</pre></div></body></html>

@@ -58,6 +58,8 @@ A couple values that are relevant and frequently useful:
 * `row.names = FALSE` - don't output additional (any usually unnecessary for us) row names column
 * `append = TRUE` - rather than overwriting a file w/ that name - it appends the results to the end of the file
 
+[cookbook-R on writing text and output to files](http://www.cookbook-r.com/Data_input_and_output/Writing_text_and_output_from_analyses_to_a_file/)
+
 ### Your task
 - you are given a dataframe with a header and units column
 - create list with the column names and units that you can reference as necessary during analysis

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Core R</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Core R</h1>
+
+<p>The objectives of this section is to take a number of concepts that you use frequently but may have not questioned the &#39;why&#39; that R behaves that way. </p>
+
+<p>The overarching theme in this documentation is to &ldquo;concisely&rdquo; present the concept in a way to help you to think &ldquo;in terms of R&rdquo; rather than trying to memorize patterns. This will be supplemented by examples to help reinforce the concepts and help you on your journey to become an R-ninja.</p>
+
+<p>To set the stage, a brief history of R can put into context many of the decisions to how R behaves.</p>
+
+<h2>Data Structures</h2>
+
+<p>R has a number of ways of storing information. The quick way to visualize the possibilities is as such:</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Homogeneous</th>
+<th>Heterogeneous</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1d</td>
+<td>Atomic vector</td>
+<td>List</td>
+</tr>
+<tr>
+<td>2d</td>
+<td>Matrix</td>
+<td>Data frame</td>
+</tr>
+<tr>
+<td>nd</td>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Homogenous</strong> - all elements must be of the same type (mode)
+<strong>Heterogeneous</strong> - elements can be of different type (mode)</p>
+
+<p>A <strong>Type/Mode</strong> indicates how R stores the information in memory</p>
+
+<ul>
+<li>numeric</li>
+<li>double</li>
+<li>integer</li>
+<li>logical</li>
+<li>character</li>
+<li>list of pointers</li>
+<li>function</li>
+</ul>
+
+<p>###table of examples### (ie page 96 R cookbook)</p>
+
+<p>The term <strong>Mode</strong> and <strong>Type</strong> are virtually interchangeable - from here out we will use the term <strong>Type</strong> as it is more commonly discussed. (&#39;mode&#39; was inhereted mostly from S/S-plus nomenclalature/defintion)</p>
+
+<h2>Vectors</h2>
+
+<p>Data structures in R can be boiled down to a Vector. The most basic vector is an atomic vector.</p>
+
+<p>Vectors have 4 key components:</p>
+
+<ul>
+<li><em>contents</em> - the information</li>
+<li><em>type</em> - what type of information it stores</li>
+<li><em>length</em> - how long it is</li>
+<li><em>attributes</em> - additional metadata</li>
+</ul>
+
+<p>These components can be easily accessed as such:</p>
+
+<pre><code class="r"># example vector
+numeric_vector &lt;- c(1, 2, 3)
+
+# access contents by calling the vector by name
+numeric_vector
+</code></pre>
+
+<pre><code>## [1] 1 2 3
+</code></pre>
+
+<pre><code class="r">
+# see vector type
+typeof(numeric_vector)
+</code></pre>
+
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+
+<pre><code class="r">
+# check length
+length(numeric_vector)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">
+# see additional attributes
+attributes(numeric_vector)
+</code></pre>
+
+<pre><code>## NULL
+</code></pre>
+
+<p>There are two useful functions for handling vectors: <code>is.*</code> and <code>as.*</code></p>
+
+<ul>
+<li><code>is.*</code> is a testing function that returns TRUE or FALSE</li>
+<li><code>as.*</code> is a coercion function - it attempts to convert the input to the requested data structure</li>
+</ul>
+
+<pre><code class="r">numeric_vector &lt;- c(1, 2, 3)
+typeof(numeric_vector)
+</code></pre>
+
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+
+<pre><code class="r">is.numeric(numeric_vector)  # note is.numeric will return TRUE for both doubles and integers
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">is.list(numeric_vector)
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">
+# coerce to list
+numeric_vector &lt;- as.list(numeric_vector)
+typeof(numeric_vector)
+</code></pre>
+
+<pre><code>## [1] &quot;list&quot;
+</code></pre>
+
+<p><em>tidbit</em> - <code>is.null</code> determines whether an Object is empty (has no content). <code>NULL</code> is often used to represent objects of zero length and is returned by expressions and functions whose value is undefined.</p>
+
+<h2>Coercion</h2>
+
+<p>For homogenous vectors, if you attempt to combine elements of different types, it will pick the class of the first element and coerce all others to that type</p>
+
+<pre><code class="r">c(&quot;hello&quot;, 1, FALSE)
+</code></pre>
+
+<pre><code>## [1] &quot;hello&quot; &quot;1&quot;     &quot;FALSE&quot;
+</code></pre>
+
+<p>Note: If a logical vector is coerced into a numeric TRUE becomes 1 and FALSE becomes 0 - this can be used to &#39;count&#39; the number of TRUE/FALSES easily using sum()</p>
+
+<ul>
+<li>vectors can be indexed by position: v[1] refers to the first element of the vector</li>
+<li>vectors can be indexed by multiple positions using c() - v[c(1,2)] will return a subvector the first and second element of &#39;v&#39;</li>
+</ul>
+
+<h2>Attributes</h2>
+
+<p>Attributes are additional metadata about an object. The most common 3 attributes are:</p>
+
+<ul>
+<li><code>names()</code> - character vector of element names</li>
+<li><code>dim()</code> - the structure of the object </li>
+<li><code>class()</code> - used to implement an object system (described later)</li>
+</ul>
+
+<p>You can give a vector names in three ways:</p>
+
+<ul>
+<li>During creation: <code>x &lt;- c(a = 1, b = 2, c = 3)</code></li>
+<li>By modifying a vector in place: <code>x &lt;- 1:3; names(x) &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</code></li>
+<li>By creating a modifed vector: <code>x &lt;- setNames(1:3, c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))</code></li>
+</ul>
+
+<p><code>dim()</code> passes additional structural information to the vector. Higher level data structures are simply atomic vectors with the addition of the dim() attribute.</p>
+
+<p>This is an important characteristic to remember as it can help conceptualize the implications of what will happen if you are trying to coerce a data structure into a different type. </p>
+
+<p>As vectors are coerced into higher order structures (eg. matrices and arrays) R handles this by default in a column-wise manner.</p>
+
+<pre><code class="r">a &lt;- matrix(1:6)
+a
+</code></pre>
+
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    3
+## [4,]    4
+## [5,]    5
+## [6,]    6
+</code></pre>
+
+<p>An element in a matrix can be indexed exactly like an atomic vector </p>
+
+<pre><code class="r">a &lt;- matrix(1:6)
+a[2]
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">a[4]
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<p>In addition, R can refer to the dimensionality via: </p>
+
+<p><strong>DS[row, column]</strong></p>
+
+<pre><code class="r">a &lt;- matrix(1:6)
+# give first row
+a[1, ]
+</code></pre>
+
+<pre><code>## [1] 1
+</code></pre>
+
+<pre><code class="r"># give first column
+a[, 1]
+</code></pre>
+
+<pre><code>## [1] 1 2 3 4 5 6
+</code></pre>
+
+<p>Beyond the 3 common attributes, additional attributes can be assigned; however it is important to note that when a vector is modified most attributes beyond the 3 listed above are lost</p>
+
+<pre><code class="r">conc &lt;- c(9.62, 3.1, 2, 0.3)
+attr(conc, &quot;units&quot;) &lt;- &quot;ug/mL&quot;
+conc
+</code></pre>
+
+<pre><code>## [1] 9.62 3.10 2.00 0.30
+## attr(,&quot;units&quot;)
+## [1] &quot;ug/mL&quot;
+</code></pre>
+
+<pre><code class="r">attributes(conc)
+</code></pre>
+
+<pre><code>## $units
+## [1] &quot;ug/mL&quot;
+</code></pre>
+
+<pre><code class="r">conc &lt;- as.data.frame(conc)
+conc
+</code></pre>
+
+<pre><code>##   conc
+## 1 9.62
+## 2 3.10
+## 3 2.00
+## 4 0.30
+</code></pre>
+
+<pre><code class="r">attributes(conc)
+</code></pre>
+
+<pre><code>## $names
+## [1] &quot;conc&quot;
+## 
+## $row.names
+## [1] 1 2 3 4
+## 
+## $class
+## [1] &quot;data.frame&quot;
+</code></pre>
+
+<h2>Lists</h2>
+
+<p>Lists offer the ability to combine objects of different types. They also separate themselves from atomic vectors as they have the capability of <strong>recursion</strong> - Lists can contain nested lists.</p>
+
+<pre><code class="r">list(list(1:3), list(&quot;hello&quot;, &quot;there&quot;), TRUE)
+</code></pre>
+
+<pre><code>## [[1]]
+## [[1]][[1]]
+## [1] 1 2 3
+## 
+## 
+## [[2]]
+## [[2]][[1]]
+## [1] &quot;hello&quot;
+## 
+## [[2]][[2]]
+## [1] &quot;there&quot;
+## 
+## 
+## [[3]]
+## [1] TRUE
+</code></pre>
+
+<p>To combine multiple lists into one large list, c() will coerce all lists to vectors and vectors to individual elements then combine them.</p>
+
+<pre><code class="r">str(list(list(1:3), list(&quot;hello&quot;, &quot;there&quot;), TRUE, 1:3))
+</code></pre>
+
+<pre><code>## List of 4
+##  $ :List of 1
+##   ..$ : int [1:3] 1 2 3
+##  $ :List of 2
+##   ..$ : chr &quot;hello&quot;
+##   ..$ : chr &quot;there&quot;
+##  $ : logi TRUE
+##  $ : int [1:3] 1 2 3
+</code></pre>
+
+<pre><code class="r">str(c(list(1:3), list(&quot;hello&quot;, &quot;there&quot;), TRUE, 1:3))
+</code></pre>
+
+<pre><code>## List of 7
+##  $ : int [1:3] 1 2 3
+##  $ : chr &quot;hello&quot;
+##  $ : chr &quot;there&quot;
+##  $ : logi TRUE
+##  $ : int 1
+##  $ : int 2
+##  $ : int 3
+</code></pre>
+
+<p>Note: As shown in the examples, the structure of an object can be shown with <code>str</code></p>
+
+<h2>Data Frames</h2>
+
+<p>The most commonly used method for storing data is the data frame. At its core, a dataframe is a list of equal-length vectors. You can think of it as having the same properties as both a matrix and a list. (This means you can use the properties of both for things like indexing and subsetting)</p>
+
+<p>A couple useful commands for dataframe attributes:</p>
+
+<ul>
+<li><code>names()</code></li>
+<li><code>colnames()</code></li>
+<li><code>rownames()</code></li>
+<li><code>length()</code></li>
+<li><code>nrow()</code></li>
+<li><code>ncol()</code></li>
+</ul>
+
+<p>You can easily see how the properties of both 1-dimensional structures (list) and 2-dimensional structures (matrix) come into play.</p>
+
+<pre><code class="r"># can initialize with named vectors
+df &lt;- data.frame(time = 1:6, conc = c(9.1, 8.5, 7.3, 4.2, 3.8, 2.5), race = &quot;male&quot;)
+## list-like length
+length(df)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r"># subset for individual element by index or name like a vector
+df[1]
+</code></pre>
+
+<pre><code>##   time
+## 1    1
+## 2    2
+## 3    3
+## 4    4
+## 5    5
+## 6    6
+</code></pre>
+
+<pre><code class="r">df[&quot;time&quot;]
+</code></pre>
+
+<pre><code>##   time
+## 1    1
+## 2    2
+## 3    3
+## 4    4
+## 5    5
+## 6    6
+</code></pre>
+
+<pre><code class="r">
+## array-like subset by dimension (remember - ds[row, column])
+df[1, ]
+</code></pre>
+
+<pre><code>##   time conc race
+## 1    1  9.1 male
+</code></pre>
+
+<pre><code class="r">colnames(df)
+</code></pre>
+
+<pre><code>## [1] &quot;time&quot; &quot;conc&quot; &quot;race&quot;
+</code></pre>
+
+<pre><code class="r">nrow(df)
+</code></pre>
+
+<pre><code>## [1] 6
+</code></pre>
+
+<h2>Creation vs Coercion</h2>
+
+<p>You can create new data structure with <code>datastructure()</code> - ie <code>data.frame()</code>
+As mentioned previously, you can coerce an object to a different data structure with <code>as.*</code> - ie: <code>as.data.frame()</code></p>
+
+<p>An additional note when coercing to data frames:</p>
+
+<ul>
+<li>a vector will yield a one-column data frame</li>
+<li>a list will yield one column for each element; it&#39;s an error if they&#39;re not all the same length</li>
+<li>a matrix will yield a data frame with the same number of columns</li>
+</ul>
+
+<h2>Combining Data Structures/Objects</h2>
+
+<p>There are a number of ways to combine multiple objects. The simplest are <code>c()</code>, <code>cbind()</code>, and <code>rbind()</code></p>
+
+<pre><code class="r">time &lt;- 1:6
+conc &lt;- c(9.1, 8.5, 7.3, 4.2, 3.8, 2.5)
+c(time, conc)
+</code></pre>
+
+<pre><code>##  [1] 1.0 2.0 3.0 4.0 5.0 6.0 9.1 8.5 7.3 4.2 3.8 2.5
+</code></pre>
+
+<pre><code class="r">rbind(time, conc)
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## time  1.0  2.0  3.0  4.0  5.0  6.0
+## conc  9.1  8.5  7.3  4.2  3.8  2.5
+</code></pre>
+
+<pre><code class="r">cbind(time, conc)
+</code></pre>
+
+<pre><code>##      time conc
+## [1,]    1  9.1
+## [2,]    2  8.5
+## [3,]    3  7.3
+## [4,]    4  4.2
+## [5,]    5  3.8
+## [6,]    6  2.5
+</code></pre>
+
+<p>While <code>cbind()</code> may seem like an easy option to quickly create df&#39;s be careful of coercion:</p>
+
+<pre><code class="r">class(cbind(time, conc))
+</code></pre>
+
+<pre><code>## [1] &quot;matrix&quot;
+</code></pre>
+
+<p>This is very important when dealing with coercion</p>
+
+<pre><code class="r">time &lt;- 1:6
+conc &lt;- c(&quot;9.1&quot;, 8.5, 7.3, 4.2, 3.8, 2.5)
+cbind(time, conc)
+</code></pre>
+
+<pre><code>##      time conc 
+## [1,] &quot;1&quot;  &quot;9.1&quot;
+## [2,] &quot;2&quot;  &quot;8.5&quot;
+## [3,] &quot;3&quot;  &quot;7.3&quot;
+## [4,] &quot;4&quot;  &quot;4.2&quot;
+## [5,] &quot;5&quot;  &quot;3.8&quot;
+## [6,] &quot;6&quot;  &quot;2.5&quot;
+</code></pre>
+
+<p>That seems easy to catch, but what about something like this:</p>
+
+<pre><code class="r">as.data.frame(cbind(time, conc))
+</code></pre>
+
+<pre><code>##   time conc
+## 1    1  9.1
+## 2    2  8.5
+## 3    3  7.3
+## 4    4  4.2
+## 5    5  3.8
+## 6    6  2.5
+</code></pre>
+
+<p>It prints out to the console looking like numbers but&hellip;</p>
+
+<pre><code class="r">str(as.data.frame(cbind(time, conc)))
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ time: Factor w/ 6 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 6
+##  $ conc: Factor w/ 6 levels &quot;2.5&quot;,&quot;3.8&quot;,&quot;4.2&quot;,..: 6 5 4 3 2 1
+</code></pre>
+
+<p>They are actually coerced to a matrix of character factors</p>
+
+<p>This is because cbind will create a matrix unless one of the objects is already a data frame.</p>
+
+<p>The best way to avoid this is to be careful when deciding if you want to <em>coerce</em> (as.*) or initialize a new data frame. </p>
+
+<p>A good habit is to just to use data.frame() directly unless you have good reason for the coercion.</p>
+
+<pre><code class="r"># coerce objects together into a data frame
+str(as.data.frame(cbind(time, conc)))
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ time: Factor w/ 6 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 6
+##  $ conc: Factor w/ 6 levels &quot;2.5&quot;,&quot;3.8&quot;,&quot;4.2&quot;,..: 6 5 4 3 2 1
+</code></pre>
+
+<pre><code class="r"># instead create new data frame
+str(data.frame(time, conc))
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ time: int  1 2 3 4 5 6
+##  $ conc: Factor w/ 6 levels &quot;2.5&quot;,&quot;3.8&quot;,&quot;4.2&quot;,..: 6 5 4 3 2 1
+</code></pre>
+
+<p>Likewise, the safest way to use cbind() is to ensure all objects are of the same type.</p>
+
+<h2>One last combining catch</h2>
+
+<p>That is, what happens if vectors being combined to are of <em>unequal length</em>? </p>
+
+<p>R handles this through something called a <em>Recycling Rule</em>.</p>
+
+<p>When R performs operations, it does so element-by-element. When combining multiple vecotrs it does so in pairs. When R reaches the end of the shorter vector it starts over from the first element and keeps filling to the length of the longer vector.</p>
+
+<p>This can be convenient when you want to add a new column with a single value:</p>
+
+<pre><code class="r">id &lt;- 1:6
+race &lt;- &quot;caucasian&quot;
+data.frame(id, race)
+</code></pre>
+
+<pre><code>##   id      race
+## 1  1 caucasian
+## 2  2 caucasian
+## 3  3 caucasian
+## 4  4 caucasian
+## 5  5 caucasian
+## 6  6 caucasian
+</code></pre>
+
+<p>But can be dangerous and lead to unintended behavior:</p>
+
+<pre><code class="r">id &lt;- 1:6
+race &lt;- c(&quot;caucasian&quot;, &quot;black&quot;)
+data.frame(id, race)
+</code></pre>
+
+<pre><code>##   id      race
+## 1  1 caucasian
+## 2  2     black
+## 3  3 caucasian
+## 4  4     black
+## 5  5 caucasian
+## 6  6     black
+</code></pre>
+
+<h1>Factors</h1>
+
+<p>Factors in R are a tricky beast and I haven&#39;t spent as much time as I&#39;d like writing up this section so I will give the cliffnotes.</p>
+
+<ul>
+<li>unordered factors cannot be sorted</li>
+<li>to convert a numeric factor back to a numeric use the command <code>as.numeric(as.character(factor))</code></li>
+<li>factors have a couple key arguments when dealing with them
+<code>levels</code> - are the values the factor takes
+<code>labels</code> - are an optional value of labels that can be used to name the factors</li>
+</ul>
+
+<p>This will be hopefully a good example for us to examine. </p>
+
+<pre><code class="r">Theoph3 &lt;- Theoph[with(Theoph, as.numeric(as.character(Subject)) &lt; 4),]
+within(Theoph3, {id &lt;- factor(Subject, 
+                                levels = c(1, 2, 3), 
+                                labels = c(&quot;John&quot;, &quot;Mary&quot;, &quot;Joe&quot;)
+                                )
+                id2 &lt;- factor(subnum, 
+                                levels = c(1, 2, 3), 
+                                labels = c(&quot;John&quot;, &quot;Mary&quot;, &quot;Joe&quot;)
+                                )
+                id3 &lt;- factor(subnum, 
+                                levels = c(11, 6, 5), 
+                                labels = c(&quot;John&quot;, &quot;Mary&quot;, &quot;Joe&quot;)
+                                )
+                subnum &lt;- as.numeric(Subject)
+                subcharnum &lt;- as.numeric(as.character(Subject))
+            }
+
+)
+</code></pre>
+
+<pre><code>## Error: object &#39;subnum&#39; not found
+</code></pre>
+
+<pre><code class="r">## generate data
+x = factor(sample(letters[1:5], 100, replace = TRUE))
+
+print(levels(x))  ## This will show the levels of x are &#39;Levels: a b c d e&#39;
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
+</code></pre>
+
+<pre><code class="r">
+## To reorder the levels: note, if x is not a factor use levels(factor(x))
+x = factor(x, levels(x)[c(4, 5, 1:3)])
+
+print(levels(x))  ## Now &#39;Levels: d e a b c&#39;
+</code></pre>
+
+<pre><code>## [1] &quot;d&quot; &quot;e&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;
+</code></pre>
+
+</body>
+
+</html>
+

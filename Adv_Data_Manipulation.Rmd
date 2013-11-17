@@ -1,7 +1,33 @@
 "Advanced" Data Manipulation
 ========================================================
 
+Example:
+
 split theoph by id, get max conc value and bind it to new column, do.call and rbind to return to same structure
+
 ```{r }
- lapply(Theoph_ids, function(x) within(x, max <- max(conc)) )
+Theoph_ids <- split(Theoph, with(Theoph, Subject))
+cmax <- lapply(Theoph_ids, function(x) within(x, cmax <- max(conc)) )
+head(cmax)
+cmax_df <- do.call(rbind, cmax)
+head(cmax_df)
+rownames(cmax_df) <- NULL
+head(cmax_df)
 ```
+
+##Passing other arguments into apply-style calls
+
+`cmax <- lapply(Theoph_ids, function(x, y) within(x, cmax <- max(y)), "conc" )`
+
+TODO: add str-split and some more data transformation stuff
+
+TODO: clean up data transformation stuff
+subjid <- "site001-AB-01"
+
+substr(subjid, 12, 13)
+?strsplit
+site <- strsplit(subjid, "-")
+
+subTheoph <- Theoph[Theoph$Subj ==1,]
+subTheoph$subjid <- "site001-AB-01"
+within(subTheoph, site <- unlist(strsplit(subjid, "-"))[1])

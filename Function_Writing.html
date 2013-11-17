@@ -1,0 +1,582 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>Function_Writing</title></head><body><h1>
+<a name="function-writing" class="anchor" href="#function-writing"><span class="octicon octicon-link"></span></a>Function Writing</h1>
+
+<p>This section will be our bread and butter as functions provide the means for us to start to harness R's power to reduce duplication of code and increase our efficiency.</p>
+
+<p>Functions in R are known as "first class objects" - they can be treated like other R objects.</p>
+
+<p>They can be:</p>
+
+<ul>
+<li> created without a name</li>
+<li> assigned to variables</li>
+<li> stored in lists</li>
+<li> returned from functions</li>
+<li> passed as arguments to other functions</li>
+<li> Essentially, you can do anything with a function that you can with a vector.</li>
+</ul><p>In R, a function is defined with the following syntax:</p>
+
+<p><code>function(arguments) body</code></p>
+
+<ul>
+<li>
+<code>function</code> is a reserved word to initialize creation.</li>
+<li>
+<strong>Arguments</strong> are sets of formal argument names that will be defined in the function body.
+
+<ul>
+<li>
+<strong>Formal arguments</strong> are arguments included in the function definition</li>
+</ul>
+</li>
+<li>The <strong>body</strong> is simply the code that the function will execute</li>
+</ul><p>A function can be written in one line as shown above, however, to encapsulate multiple lines brackets <code>{}</code> must be used.</p>
+
+<p>A multi-line function could look as such:</p>
+
+<pre><code>function(arguments) {
+    some code
+    some more code
+    even more code
+}
+</code></pre>
+
+<p>We can a simple addition function to examine some features</p>
+
+<div class="highlight highlight-r"><pre><span class="c">add_fun &lt;- function(x, y) {</span>
+<span class="c">    x + y</span>
+<span class="c">}</span>
+</pre></div>
+
+<p>This is a function function declaration. We have created a function and given it a name. We can use it by calling it by name and passing some arguments that it requires.</p>
+
+<div class="highlight highlight-r"><pre><span class="c">add_fun(1, 5)</span>
+</pre></div>
+
+<pre><code>## [1] 6
+</code></pre>
+
+<p>There are numer of important behaviors going on 'behind-the-scenes' in even this simple function call.</p>
+
+<h3>
+<a name="default-behaviors" class="anchor" href="#default-behaviors"><span class="octicon octicon-link"></span></a>Default Behaviors</h3>
+
+<p><strong>Formal arguments</strong> can be soley user defined, they can also have a default value/behavior.</p>
+
+<p>Defaults can be assigned to an argument with <code>=</code> </p>
+
+<p>Let's update our function to default to <code>y = 5</code></p>
+
+<div class="highlight highlight-r"><pre><span class="c">add_fun2 &lt;- function(x, y = 5) x + y</span>
+</pre></div>
+
+<p>When a default behavior defined, if no object or value is passed to that argument, the default value is used.</p>
+
+<div class="highlight highlight-r"><pre><span class="c">add_fun2(6)</span>
+</pre></div>
+
+<pre><code>## [1] 11
+</code></pre>
+
+<p>But you can override the default behavior by simply passing in some value</p>
+
+<div class="highlight highlight-r"><pre><span class="c">add_fun2(6, 3)</span>
+</pre></div>
+
+<pre><code>## [1] 9
+</code></pre>
+
+<p>If no default is defined, the function will halt and give you an error requesting what to do with the missing argument value</p>
+
+<div class="highlight highlight-r"><pre><span class="c">add_fun2(y = 3)</span>
+</pre></div>
+
+<pre><code>## Error: 'x' is missing
+</code></pre>
+
+<p>When you have multiple arguments - how does a function know which one to use for the various arguments?</p>
+
+<h3>
+<a name="argument-matching" class="anchor" href="#argument-matching"><span class="octicon octicon-link"></span></a>Argument Matching</h3>
+
+<p>Like all things programming - R has specific rules for how it handles argument matching for functions.</p>
+
+<p>Here is a basic overview:</p>
+
+<ul>
+<li>arguments can be matched positionally or by name</li>
+<li>you can mix positional and named matching
+
+<ul>
+<li>when an argument is matched by name it is "removed" from the argument list - the remaining arguments are matched by order</li>
+</ul>
+</li>
+<li>arguments can be partially matched</li>
+</ul><p>The overall order of operations for argument matching:
+1) Check exact match for named argument
+2) Check for partial match for named argument
+3) Check for positional match
+4) Any remaining unmatched formal arguments are "taken up" by <code>...</code></p>
+
+<p><strong>Caveat(s)</strong> </p>
+
+<ul>
+<li>Any arguments <em>after</em> <code>...</code> are only matched exactly</li>
+<li>Tags partially matching multiple arguments will result in an error</li>
+</ul><h3>
+<a name="lazy-evaluation" class="anchor" href="#lazy-evaluation"><span class="octicon octicon-link"></span></a>Lazy Evaluation</h3>
+
+<p>Lazy evaluation states that arguments to functions are only evaluated as need.</p>
+
+<div class="highlight highlight-r"><pre><span class="c">plus_one &lt;- function(x, y) x + 1</span>
+<span class="c">plus_one(5)</span>
+</pre></div>
+
+<pre><code>## [1] 6
+</code></pre>
+
+<p>This does not give an error saying <code>y</code> the <code>y</code> argument is missing as 5 gets positionally matched to <code>x</code> and no other evaluation occurs.</p>
+
+<p>An interesting example of this lazy evaluation is through the following example</p>
+
+<div class="highlight highlight-r"><pre><span class="c">a &lt;- 1</span>
+<span class="c">b &lt;- 2</span>
+<span class="c">c &lt;- 3</span>
+<span class="c">d &lt;- quote(c(a, b, c))</span>
+<span class="c">eval(d)</span>
+</pre></div>
+
+<pre><code>## [1] 1 2 3
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">a &lt;- 10</span>
+<span class="c">eval(d)</span>
+</pre></div>
+
+<pre><code>## [1] 10  2  3
+</code></pre>
+
+<p>The quote function simply returns its argument, eval is it's "opposite", it evaluates what it is passed. </p>
+
+<h3>
+<a name="passing-on-arguments" class="anchor" href="#passing-on-arguments"><span class="octicon octicon-link"></span></a>Passing on Arguments</h3>
+
+<p><code>...</code> argument indicates that arguments may be passed on to other (internally called) functions</p>
+
+<p><code>...</code> can be used when extending another function where you don't want to copy all the arguments from the original function. </p>
+
+<div class="highlight highlight-r"><pre><span class="c">f &lt;- function(x, ...) {</span>
+<span class="c">    print(x)</span>
+<span class="c">    summary(...)</span>
+<span class="c">}</span>
+
+<span class="c">f("It worked! The summary is:", runif(1000, 0, 100), digits = 2)</span>
+</pre></div>
+
+<pre><code>## [1] "It worked! The summary is:"
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    0.19   23.00   49.00   48.00   70.00  100.00
+</code></pre>
+
+<p>As you can see, all arguments after the first - which was given to <code>x</code> - where passed to <code>summary</code>.</p>
+
+<h3>
+<a name="return-values" class="anchor" href="#return-values"><span class="octicon octicon-link"></span></a>Return Values</h3>
+
+<p>In R after a function completes its code it will return a resulting value. </p>
+
+<div class="highlight highlight-r"><pre><span class="c">f &lt;- function(x) x + 1</span>
+<span class="c">f(2)</span>
+</pre></div>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p><code>f(2)</code> returns the result of <code>x + 1</code>, which in this case is 3.</p>
+
+<p>By default, <strong>R returns the last evaluated expression</strong>. You can also formally declare what you'd like R to return using <code>return()</code></p>
+
+<div class="highlight highlight-r"><pre><span class="c">f &lt;- function(x) return(x + 1)</span>
+</pre></div>
+
+<p>This can be helpful for legibility when dealing with more complex functions where multiple outcomes are possible. It can also help you "escape" a function early by returning a result as soon as one is relevant</p>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign &lt;- function(x) {</span>
+<span class="c">    if (!is.numeric(x)) </span>
+<span class="c">        return("NaN")</span>
+<span class="c">    if (x &gt; 0) </span>
+<span class="c">        return("positive")</span>
+<span class="c">    if (x &lt; 0) </span>
+<span class="c">        return("negative")</span>
+<span class="c">    return("Don't know - is it zero?")</span>
+<span class="c">}</span>
+
+<span class="c">num_sign(1)</span>
+</pre></div>
+
+<pre><code>## [1] "positive"
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign(-1)</span>
+</pre></div>
+
+<pre><code>## [1] "negative"
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign("hello")</span>
+</pre></div>
+
+<pre><code>## [1] "NaN"
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign(0)</span>
+</pre></div>
+
+<pre><code>## [1] "Don't know - is it zero?"
+</code></pre>
+
+<div class="highlight highlight-r"><pre>
+<span class="c">num_sign2 &lt;- function(x) {</span>
+<span class="c">    if (!is.numeric(x)) </span>
+<span class="c">        "NaN"</span>
+<span class="c">    if (x &gt; 0) </span>
+<span class="c">        "positive"</span>
+<span class="c">    if (x &lt; 0) </span>
+<span class="c">        "negative"</span>
+<span class="c">    "Don't know - is it zero?"</span>
+<span class="c">}</span>
+
+<span class="c">num_sign2(1)</span>
+</pre></div>
+
+<pre><code>## [1] "Don't know - is it zero?"
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign2(-1)</span>
+</pre></div>
+
+<pre><code>## [1] "Don't know - is it zero?"
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign2("hello")</span>
+</pre></div>
+
+<pre><code>## [1] "Don't know - is it zero?"
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">num_sign2(0)</span>
+</pre></div>
+
+<pre><code>## [1] "Don't know - is it zero?"
+</code></pre>
+
+<p><strong>R can only return a single result from a function</strong></p>
+
+<p>To return multiple objects you can combine them into a list or other structure</p>
+
+<div class="highlight highlight-r"><pre><span class="c">PK_info &lt;- function() {</span>
+<span class="c">    id &lt;- 1:10</span>
+<span class="c">    doses &lt;- c(1, 5, 10)</span>
+<span class="c">    time &lt;- seq(0, 10, 1)</span>
+<span class="c">}</span>
+
+<span class="c">PK_info2 &lt;- function() {</span>
+<span class="c">    id &lt;- 1:10</span>
+<span class="c">    doses &lt;- c(1, 5, 10)</span>
+<span class="c">    time &lt;- seq(0, 10, 1)</span>
+<span class="c">    list(id = id, doses = doses, time = time)</span>
+<span class="c">}</span>
+
+<span class="c">PK_info()</span>
+<span class="c">PK_info2()</span>
+</pre></div>
+
+<pre><code>## $id
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $doses
+## [1]  1  5 10
+## 
+## $time
+##  [1]  0  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<h2>
+<a name="basic-function-creation-assignments" class="anchor" href="#basic-function-creation-assignments"><span class="octicon octicon-link"></span></a>Basic Function Creation Assignments</h2>
+
+<h1>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<h1>
+<a name="pause-to-go-read-the-environments-and-r-section" class="anchor" href="#pause-to-go-read-the-environments-and-r-section"><span class="octicon octicon-link"></span></a>pause to go read the Environments and R section</h1>
+
+<h2>
+<a name="types-of-functions" class="anchor" href="#types-of-functions"><span class="octicon octicon-link"></span></a>Types of Functions</h2>
+
+<p>3 specific types of functions that you may frequently run-into and/or utilize yourself are:</p>
+
+<ul>
+<li>Anonymous functions - functions that don't have a name</li>
+<li>Closures - functions written by other functions</li>
+<li>Lists of Functions - storing multiple functions in a list</li>
+</ul><h3>
+<a name="anonymous-functions" class="anchor" href="#anonymous-functions"><span class="octicon octicon-link"></span></a>Anonymous Functions</h3>
+
+<p>In R, there is no special syntax for creating functions. Functions, like most things in R, are objects themselves. When you create a function, you are simply assigning a name to the object you are creating. By this behavior you can even create a function and assign it many names.</p>
+
+<p>Sometimes, however, we don't want or need to spend the time assigning a name. You've most likely run across this when reading code that uses commands such as the <code>apply</code> family, <code>do.call</code>, or with <code>plyr</code>. </p>
+
+<p>Something along the lines of: </p>
+
+<p><code>lapply(df, function(x) length(unique(x)))</code></p>
+
+<p>This lapply command could be rewritten with a named function</p>
+
+<pre><code>len_unique &lt;- function(x) length(unique(x))
+lapply(df, len_unique)
+</code></pre>
+
+<p>However, that is unnecessarily verbose for a one-time function, and can also introduce unnecessary clutter into your environment(s)</p>
+
+<p>Just like other functions, anonymous function have <strong>formals</strong> (arguments), a <strong>body</strong> and are tied to a <strong>parent environment</strong></p>
+
+<h3>
+<a name="closures" class="anchor" href="#closures"><span class="octicon octicon-link"></span></a>Closures</h3>
+
+<p>Closures were touched upon in the <a href="Environments-and-Scoping.md" target="_blank"><img src="Environments-and-Scoping.md" alt="Environments and Scoping" style="max-width:100%;"></a> section.</p>
+
+<p>Closures are functions written within other functions, and therefore have access to the environment of the parent function (they <em>enclose</em> it).</p>
+
+<p>This is a powerful tool to creating <strong>function factories</strong></p>
+
+<h4>
+<a name="assignment" class="anchor" href="#assignment"><span class="octicon octicon-link"></span></a>Assignment</h4>
+
+<p>Create a function factory <code>dosing_time</code> that can create functions for various dosing schemes. Use it to create a QD, BID, and TID regimen out to 168 hours. </p>
+
+<p>Hint: maybe something involving seq()</p>
+
+<h3>
+<a name="lists-of-functions" class="anchor" href="#lists-of-functions"><span class="octicon octicon-link"></span></a>Lists of Functions</h3>
+
+<p>One way to store sets of functions is to put them in lists. Instead of a single function returning a list of results, you can actually store the functions themselves in a list for later re-use. </p>
+
+<div class="highlight highlight-r"><pre><span class="c">means &lt;- list(normal = function(x) mean(x), geometric = function(x) ..., harmonic = function(x) ..., </span>
+<span class="c">    )</span>
+</pre></div>
+
+<pre><code>## Error: argument 4 is empty
+</code></pre>
+
+<p>To then call a function you can simply extract it from the list</p>
+
+<p><code>means$harmonic(data)</code> or <code>means[["geometric"]](data)</code></p>
+
+<p>While it might seem awkward there are some situations where lists of functions provide convenience. It also offers a degree of modularity that reduces dependencies.</p>
+
+<h4>
+<a name="assignment-1" class="anchor" href="#assignment-1"><span class="octicon octicon-link"></span></a>Assignment</h4>
+
+<ul>
+<li>Using a dataset of your choosing write 2-3 functions to create exploratory plots </li>
+<li>Add those functions to an <code>exploratory_plots</code> list. </li>
+<li>Using <code>lapply</code> quickly call all the functions on:
+
+<ul>
+<li>the whole dataset</li>
+<li>a subset</li>
+</ul>
+</li>
+</ul><h2>
+<a name="functional-programming" class="anchor" href="#functional-programming"><span class="octicon octicon-link"></span></a>Functional Programming</h2>
+
+<p>Functions provide a host of benefits to the user. The allow for efficient automation of repetitive tasks, bundling or common operations and a host of other possibilities.</p>
+
+<p>One additional, and equally important, opporunity they offer is to <strong>reduce errors</strong>.</p>
+
+<p>As touched upon in <em>Pragmatic Programming</em>, the <strong>DRY</strong> (DON'T REPEAT YOURSELF) is well suited to functions.</p>
+
+<p>A Motivating Example</p>
+
+<p>When dealing with a new dataset there are two frequent issues that arise with concentration data - BQL values, and how to handle them.</p>
+
+<p>Given the hypothetical situation where you are given 3 similarly-structured datasets how you could handle replacing the phrase <code>LLOQ &lt; 10</code> simply with NA?</p>
+
+<p>The copy-paste process may be something along the lines of:</p>
+
+<pre><code>df1[df1$CONC == 'LLOQ &lt; 10'] &lt;- NA
+df2[df2$CONC == 'LLOQ &lt; 10'] &lt;- NA
+df3[df3$CONC == 'LLOQ &lt; 10'] &lt;- NA
+df4[df4$CONC == 'LLOQ &lt; 10'] &lt;- NA
+df5[df4$CONC == 'LLOQ &lt; 10'] &lt;- NA
+</code></pre>
+
+<p>Quick - did anyone spot any issue with the code?</p>
+
+<p>Let's write a function to help automate this, as well as reduce potential for mistakes such as the above</p>
+
+<div class="highlight highlight-r"><pre><span class="c">BQL_NA &lt;- function(x) {</span>
+<span class="c">    x[x[["CONC"]] == "LLOQ &lt; 10"] &lt;- NA</span>
+<span class="c">    x</span>
+<span class="c">}</span>
+
+<span class="c">BQL_NA(df1)</span>
+<span class="c">BQL_NA(df2)</span>
+<span class="c">BQL_NA(df3)</span>
+<span class="c">BQL_NA(df4)</span>
+<span class="c">BQL_MA(df5)</span>
+</pre></div>
+
+<p>Closer, but again, we're repeating ourselves.</p>
+
+<p>We touched on <code>lapply</code>, lets combine our dataframes into a list a </p>
+
+<p><strong>SIDE TRICK</strong> <code>df[] &lt;- lapply(df, our_fun)</code> - using <code>df[]</code> will give us back a dataframe instead of a list from <code>df &lt;- lapply(df, our_fun)</code></p>
+
+<div class="highlight highlight-r"><pre><span class="c">df_list &lt;- list(df1, df2, df3, df4, df5)</span>
+</pre></div>
+
+<pre><code>## Error: object 'df1' not found
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="c">df_NOBQL &lt;- lapply(df_list, BQL_NA)</span>
+</pre></div>
+
+<pre><code>## Error: object 'BQL_NA' not found
+</code></pre>
+
+<h3>
+<a name="assignment-2" class="anchor" href="#assignment-2"><span class="octicon octicon-link"></span></a>Assignment</h3>
+
+<ul>
+<li>extend BQL_NA to allow us to pass different character strings for what how the LLOQ was defined</li>
+<li>BONUS: likewise, extend it to:<br><ul>
+<li>handle any column 'conc' regardless of capitalization</li>
+<li>handle any concentration column name (conc, concentration, DV, ...)</li>
+</ul>
+</li>
+</ul></body></html>

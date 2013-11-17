@@ -2,7 +2,7 @@ Thinking in R
 ==================================================
 Thinking in R is very important as your R-tasks increase in complexity or magnitude.  Keep in mind that the rest of the workshop will build and call on these concepts heavily. This will also be your first foray into examining your approach to a problem and 'best practices', as there will almost always be a number of ways of getting to the result you want. The goal is to keep you in the 'better' to 'best' range as often as possible. 
 
-
+ 
 ## Thinking in R
 
 ### Memory Allocation
@@ -11,7 +11,8 @@ Before we jump into subsetting, we need to briefly touch upon how R treats data,
 
 Lets look at three possible methods of generating a sequence:
 
-```{r eval = F }
+
+```r
 library(microbenchmark)
 
 # c_grow
@@ -29,6 +30,7 @@ microbenchmark {
 # do test
 }
 ```
+
 
 Why is the colon operator so much faster?
 
@@ -71,7 +73,7 @@ The magic that gives these functions is they have been written in C. They are st
 
 The other benefit that is frequent by-product of vectorization is *legibility* - sum(x) is so easy to understand compared to that loop.
 
-Likewise, `conc <- amt*volume` is both easier to read, and clearly expresses the relationship between variables, whether we are multiplying one amt and volume or a columns of amts and volumes.
+Likewise, `conc <- amt/volume` is both easier to read, and clearly expresses the relationship between variables, whether we are multiplying one amt and volume or a columns of amts and volumes.
 
 ### Vectorization Tips
 * Put as much outside of loops as possible. Ex: If you have a sequence you are applying over and over, create the sequence first and reuse it inside the loop.
@@ -82,7 +84,7 @@ We will come back to more 'optimization'-type issues later, but for now keep the
 
 ## Indexing
 
-As has been applied in previous examples, R has to have a way of refering to where in your object certain pieces of information are stored. Given that everything in R can be thought of as a vector, indexing allows us to easily query the position in which the vector an element is stored.
+As has been applied in previous examples, R has to have a way of referring to where in your object certain pieces of information are stored. Given that everything in R can be thought of as a vector, indexing allows us to easily query the position in which the vector an element is stored.
 
 For example, to examine the 10th element of an atomic vector one simply can do `v[10]`
 

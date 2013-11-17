@@ -6,13 +6,12 @@ This section will be our bread and butter as functions provide the means for us 
 Functions in R are known as "first class objects" - they can be treated like other R objects.
 
  They can be:
-* created without a name
-* assigned to variables
-* stored in lists
-* returned from functions
-* passed as arguments to other functions
-
-Essentially, you can do anything with a function that you can with a vector.
+*  created without a name
+*  assigned to variables
+*  stored in lists
+*  returned from functions
+*  passed as arguments to other functions
+*  Essentially, you can do anything with a function that you can with a vector.
 
 In R, a function is defined with the following syntax:
 
@@ -195,8 +194,11 @@ To return multiple objects you can combine them into a list or other structure
 ```{r }
 PK_info <- function(){
     id <- 1:10
+    id
     doses <- c(1, 5, 10)
+    doses
     time <- seq(0, 10, 1)
+    time
 }
 
 PK_info2 <- function(){
@@ -297,11 +299,11 @@ Given the hypothetical situation where you are given 3 similarly-structured data
 The copy-paste process may be something along the lines of:
 
 ```
-df1[df1$CONC == 'LLOQ < 10'] <- NA
-df2[df2$CONC == 'LLOQ < 10'] <- NA
-df3[df3$CONC == 'LLOQ < 10'] <- NA
-df4[df4$CONC == 'LLOQ < 10'] <- NA
-df5[df4$CONC == 'LLOQ < 10'] <- NA
+df1$conc[df1$CONC == 'LLOQ < 10'] <- NA
+df2$conc[df2$CONC == 'LLOQ < 10'] <- NA
+df3$conc[df3$CONC == 'LLOQ < 10'] <- NA
+df4$conc[df4$CONC == 'LLOQ < 10'] <- NA
+df5$conc[df4$CONC == 'LLOQ < 10'] <- NA
 ```
 
 Quick - did anyone spot any issue with the code?

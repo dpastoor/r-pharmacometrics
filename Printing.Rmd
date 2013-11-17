@@ -1,0 +1,45 @@
+PRINTING
+=================
+TODO: rename section or move paste to different section
+
+`cat`
+
+`paste`
+
+`paste0` - simply paste with default separator of ''
+
+`sprintf()`
+
+```{r }
+numscenarios <- 50 # could easily check length of generated simulation scenario table
+message(sprintf("Simulation started at %s, %s iterations will be run ", date(), numscenarios))
+```
+
+
+
+good helpful section in [R-cookbook](http://www.cookbook-r.com/Strings/Creating_strings_from_variables/)
+
+sprintf() is a function which returns a value which is a [vector of] character string[s]. The "print" in its name is there because its name is the same as the C function sprintf whose purpose is to create a character string ("s") formatted ("f") according to the format argument. sprintf() does not perform the operation of "printing" its value to the screen -- never! However, on may get the impression that it does so if one uses it "stand-alone" in a command line:   
+sprintf("%.4f",pi) 
+  # [1] "3.1416" 
+but this is because *anything* which has a value, when entered stand-alone in a command line, will result in the value being "printed" to the screen. It is R which does this, not the "anything". 
+  X <- sprintf("%.4f",pi)  ## Note that this does not print either 
+  X 
+  # [1] "3.1416" 
+ 
+Inside a loop, or inside a function, you need to wrap the "sprintf(...)" inside a cat() or print() statement; when something which has a value is named in such a context, the
+"printing to screen" is suppressed. It is R which suppresses it. 
+  for(i in (1:2)){ 
+    X <- sprintf("%.4f",pi) 
+    X 
+  } 
+  produces nothing on screen. However, 
+  for(i in (1:2)){ 
+    X <- sprintf("%.4f",pi) 
+    print(X) 
+  } 
+  # [1] "3.1416" 
+  # [1] "3.1416" 
+  See ?sprintf for more detail on its relation with the C function of the same name. 
+
+

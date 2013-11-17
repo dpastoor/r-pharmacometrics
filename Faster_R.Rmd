@@ -1,2 +1,4 @@
 Faster R
 ========================================================
+
+http://stackoverflow.com/questions/11533438/why-is-plyr-so-slow
