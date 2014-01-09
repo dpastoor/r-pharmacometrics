@@ -27,6 +27,7 @@ vec <- 1:n
 
 microbenchmark {
 # do test
+# TODO: add microbenchmark test
 }
 ```
 

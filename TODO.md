@@ -4,7 +4,7 @@ TODO
 Things to expand upon to make sure people get concept:
 
 More examples of coercion - factors to characters. Explaining coercion rules more in-depth
-
+TODO: merge todo.md and outline plan.md to determine what still needs to be added
 TODO: sections to add
 - (mathematical) operators 
 - convert intro to R presentation into sections

@@ -72,3 +72,5 @@ Then in later chunk
 ```{r, eval = FALSE}
 qplot(conc, Time, data = Theoph, color = Subject) + <<my-theme>>
 ```
+
+TODO: flesh out and add additional material from knitr book

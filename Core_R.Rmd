@@ -291,7 +291,9 @@ data.frame(id, race)
 
 
 # Factors
-Factors in R are a tricky beast and I haven't spent as much time as I'd like writing up this section so I will give the cliff notes.
+Factors in R are a tricky beast and I haven't spent as much time as I'd like writing up this section so I will give the cliff notes. 
+
+TODO: expand factors section significantly
 
 * unordered factors cannot be sorted
 * to convert a numeric factor back to a numeric use the command `as.numeric(as.character(factor))`

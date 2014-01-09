@@ -1,8 +1,8 @@
 Environments and Scoping Rules
 ==============================
-Continuous from Basic Function Writing
+Continued from Basic Function Writing
 
-Until this point, we have not addressed how R stores and references objects. This underlying behavior is incredibly important to the end-users.
+Until this point, we have not addressed how R stores and references objects. This underlying behavior is incredibly important to the end-users. In addition, there are some important behaviors that play a role in more complex R-based projects.
 
 For example, what is going on in the following situation
 
@@ -11,10 +11,10 @@ dose <- 100
 dosing_col <- function(df, dose) {
     df[,"dose"] <- dose 
 }
+# TOCHANGE: add real ourDF and change to eval = T
 
 dosing_col(ourDF, dose = 500)
 ```
-
 How does R know to to use the value of 500 for dose, rather than 100.
 
 Another situation:
@@ -23,7 +23,7 @@ Another situation:
 y <- 3
 add_fun <- function(x, ...) x + y
 
-# what happens in these situations
+# what happens in these situations?
 add_fun(2)
 add_fun(2, 10)
 add_fun(2, y = 10)
@@ -55,7 +55,9 @@ Scoping is a ruleset used to lookup symbol (variable) values when they are calle
 Scoping rules determine how a value is associated with free variables. R primarily uses **lexical scoping**. Lexical scoping defines how variable names are resolved in nested function. 
 
 ### Lexical Scoping
-At it's heart lexical scoping can be explained as inner functions (child functions) contain the scope of the parent functions. This is possible due to the *first class* nature of functions in R
+At it's heart lexical scoping can be explained as inner functions (child functions) contain the scope of the parent functions. This is possible due to the *first class* nature of functions in R. 
+
+TODO: add more layman definition (perhaps with example)
 
 This is particularly useful for simplifying computations (especially statistical ones!)
 
@@ -82,6 +84,7 @@ Each function is associated with four distinct environments
 ### Where Function Exists
 When a function is created, a reference is added to point to the environment where it was made. This is 
 
+TOCHANGE: re-do example to make more easily understandable
 ```{r }
 dose <- 100
 t <- function(x = 10) {
@@ -149,6 +152,7 @@ We can take advantage of R's ability to return a function in combination with re
 
 Another example:
 
+TOCHANGE: update significantly to make more easily understandable
 ```{r }
 greeting_fun <- function() {
   introduction <- "hello"
@@ -233,4 +237,6 @@ t(15)
 dose
 ```
 
-This is especially dangerous as it can introduce dependencies between functions that aren't immediately apparent!
+This is especially dangerous as it can introduce dependencies between functions that aren't immediately apparent! This should only be used in extremely specific circumstances. Frankly, in virtually all situations you are better off attacking the problem from a different angle if the only way to get the behavior you want is to use `<<-`. 
+
+TODO: give example of when <<- used

@@ -1,11 +1,13 @@
 Pragmatic Programming
 ========================================================
 
+TOCHANGE: examples taken from tao te programming
+
 Uwe Ligges maxim:
 
 Computers are cheap, and thinking hurts
 
-"Make your functions as simple as possible. Simple has many advantages: Simple functions are likely to be human ecient: they will be easy to understand and to modify. Simple functions are likely to be computer efficient. Simple functions are less likely to be buggy , and bugs will be easier to fix. (Perhaps ironically) simple functions may b e more general, thinking about the heart of the matter often broadens the application." (Burns 2011:33)
+"Make your functions as simple as possible. Simple has many advantages: Simple functions are likely to be human efficient: they will be easy to understand and to modify. Simple functions are likely to be computer efficient. Simple functions are less likely to be buggy , and bugs will be easier to fix. (Perhaps ironically) simple functions may b e more general, thinking about the heart of the matter often broadens the application." (Burns 2011:33)
 
 "We want our functions to be correct. Not all functions are correct. The results from specific calls can be put in to 4 categories: 
 1. Correct. 

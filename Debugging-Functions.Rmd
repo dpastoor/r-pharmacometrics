@@ -22,7 +22,7 @@ R has a couple useful built-in tools for debugging:
 
 There is also the `message` and `print/cat` techniques - that are less elegant but work for basic situations
 
-NOTE: change rmse example slightly to make it more 'real'
+TOCHANGE: change rmse example slightly to make it more 'real'
 
 ```{r }
 deviation <- function(x)x-mean(x)
@@ -57,7 +57,7 @@ while debugging a couple things you can use to navigate
 * continue code execution `c` - similar to `n` but may allow for multiple lines of code to execute before stopping (will run all code inside loop or function before pausing)
 While in debug mode you can run code on objects in the environment as you would otherwise
 
-NOTE: to modify as well
+TOCHANGE: to modify as well from metrum-esque example
 
 ```{r }
 deviation <- function(x){

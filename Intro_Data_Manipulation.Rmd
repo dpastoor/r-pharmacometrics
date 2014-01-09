@@ -384,6 +384,8 @@ Theoph <- within(Theoph, MDV[Subject == 2 & conc == 0] <- 0)
 
 Let's create some sample data to merge
 
+TOCHANGE: modify sample merge data off metrum-esque
+
 ```{r }
 dose <- data.frame(
     subject = rep(letters[1:3], each = 2),
