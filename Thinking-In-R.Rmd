@@ -83,7 +83,7 @@ We will come back to more 'optimization'-type issues later, but for now keep the
 
 ## Indexing
 
-As has been applied in previous examples, R has to have a way of refering to where in your object certain pieces of information are stored. Given that everything in R can be thought of as a vector, indexing allows us to easily query the position in which the vector an element is stored.
+As has been applied in previous examples, R has to have a way of referring to where in your object certain pieces of information are stored. Given that everything in R can be thought of as a vector, indexing allows us to easily query the position in which the vector an element is stored.
 
 For example, to examine the 10th element of an atomic vector one simply can do `v[10]`
 

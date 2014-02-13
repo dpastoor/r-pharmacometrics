@@ -31,3 +31,5 @@ site <- strsplit(subjid, "-")
 subTheoph <- Theoph[Theoph$Subj ==1,]
 subTheoph$subjid <- "site001-AB-01"
 within(subTheoph, site <- unlist(strsplit(subjid, "-"))[1])
+
+TODO: add dplyr section
