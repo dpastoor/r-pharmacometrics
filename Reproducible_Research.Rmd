@@ -1,0 +1,4 @@
+Reproducible Research
+=============================
+
+TODO: add components for: Rmarkdown, knitr, git/github/bitbucket

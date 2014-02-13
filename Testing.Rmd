@@ -1,0 +1,7 @@
+Testing
+=====================
+
+TODO: provide highlights from [hadley's testing](http://adv-r.had.co.nz/Testing.html) 
+notes
+TODO: add additional material from other sources
+TODO: give some relevant examples
