@@ -1,6 +1,24 @@
 "Advanced" Data Manipulation
 ========================================================
 
+In progress.
+
+TODO:
+* dplyr for data manipulation
+
+Additional functions to cover:
+
+* metrumrg package:
+
+  * check.subjects
+  * locf
+  * metaMerge
+  * metaSub
+  * resample.data.frame
+  
+
+  
+
 Example:
 
 split theoph by id, get max conc value and bind it to new column, do.call and rbind to return to same structure
