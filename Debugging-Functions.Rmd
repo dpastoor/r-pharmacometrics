@@ -46,6 +46,30 @@ j <- function(i = 5) {
 j()
 ```
 
+## Commands While Debugging 
+interactive debugging through `browser()` can be helpful to see what is going on inside your function.
+
+A couple of the important commands to know are:
+
+* **<RET>** Go to the next statement if the function is being debugged. Continue execution if the browser was invoked.
+* **c or cont** - Continue execution without single stepping.
+* **n** - Execute the next statement in the function. This works from the browser as well.
+* **where** - Show the call stack.
+* **Q** - Halt execution and jump to the top-level immediately.
+
+`browser()` is helpful to use while building a function if you would like to check what is going on each time the function is called. 
+
+```{r}
+my_fun <- function(x)
+# do some stuff ...
+browser()
+## do more stuff
+```
+
+For the above example, when `my_fun` is run, the browser will be launched at the point where it is called in the function and you can check the current status of the function environment.
+
+TODO: add example use for browser inside function
+
 ## debugging example time TODO: snap-shot examples for future references
 
 while debugging a couple things you can use to navigate
