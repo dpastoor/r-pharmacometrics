@@ -74,3 +74,30 @@ qplot(conc, Time, data = Theoph, color = Subject) + <<my-theme>>
 ```
 
 TODO: flesh out and add additional material from knitr book
+
+## Adding Tables
+
+Knitr has a built in function `kable` that allows for easy creation of tables. 
+
+```{r}
+library(knitr)
+kable(head(Theoph))
+```
+
+It is worth checking out the documentation for kable via `?kable`
+
+By default, the output is a markdown table, which makes printing to the console or evaluating the knitted markdown easy. `kable` also allows direct output into latex, html, pandoc, and rst via the `format` argument
+
+One other highly useful argument is `digits`, which passes all values in numeric columns through the `round()` function before printing them out. This prevents analysis results to print all calculated digits.
+
+```{r}
+AUC_df <- data.frame(ID = 1:5, AUC = runif(5, 10, 100))
+kable(AUC_df)
+kable(AUC_df, , digits = 2)
+```
+
+QUESTION: can digits be specified for certain columns only?
+
+TODO: controlling table style via css
+
+TODO: add xtable/pander options
