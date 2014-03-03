@@ -70,7 +70,7 @@ Along with the following user key bindings (note: keybindings will not work with
 ```
 {
   "keys": ["ctrl+shift+t"],
-  "command": "todo",
+  "command": "todo_review",
   "args": {"open_files": false}
 },
 {
