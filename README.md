@@ -14,9 +14,7 @@ My goal is to rectify that by providing more relevant examples to the material a
 
 Navigating this repo:
 
-Most of my writing is done in sublimetext (ST) 3. To facilitate tracking of issues, additions, etc (beyond the git repository) I use the sublimeTODO (ST2 only) plugin.
-
-For ST3 a "new" official ST3 TODO package called [TodoReview](https://github.com/jonathandelgado/SublimeTodoReview) may be installed via package control (search TodoReview) and is actively being updated.
+Most of my writing is done in sublimetext (ST) 3. To facilitate tracking of issues, additions, etc (beyond the git repository) I use a "new" official ST3 TODO package called [TodoReview](https://github.com/jonathandelgado/SublimeTodoReview) may be installed via package control (search TodoReview) and is actively being updated.
 
 I have TODO patterns for the following:
 
@@ -67,18 +65,18 @@ To replicate my settings you can simply add the following information to your su
 
 ```
 
-Along with the following user key bindings (note keybindings only work with sublimeTODO (not TodoReview on ST3 at the moment))
+Along with the following user key bindings (note: keybindings will not work with old ST2 SublimeTODO plugin as the args has changed - ST2 version was `open_files_only` vs the current `open_files`)
 
 ```
 {
   "keys": ["ctrl+shift+t"],
   "command": "todo",
-  "args": {"open_files_only": false}
+  "args": {"open_files": false}
 },
 {
   "keys": ["ctrl+shift+alt+t"],
-  "command": "todo",
-  "args": {"open_files_only": true}
+  "command": "todo_review",
+  "args": {"open_files": true}
 }
 
 ```
