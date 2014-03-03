@@ -1,0 +1,13 @@
+Writing Reproducible Reports with LYX (and knitr)
+==============================
+
+## LYX setup 
+
+## Tips and Tricks
+
+
+## Example
+
+A minimal reproducible example is shown in the repository 
+
+TODO: add repository

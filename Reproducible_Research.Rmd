@@ -1,6 +1,15 @@
 Reproducible Research
 =============================
 
+This section covers the conceptual framework behind reproducible research.
+
+For software-specific implementations, tips, and tricks, please refer to the 
+following sections:
+
+* RMD_Lab_Notebook
+* LYX Reports
+* Slidify Presentations
+
 TODO: add components for: Rmarkdown, knitr, git/github/bitbucket
 
 ## Importance of Reproducible Research

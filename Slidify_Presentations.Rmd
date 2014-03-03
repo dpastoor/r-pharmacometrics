@@ -1,0 +1,10 @@
+Reproducible HTML Slide Decks (with Slidify)
+=========================
+
+## Slidify Set-up
+
+## Important Links
+
+## Tips and Tricks
+
+## Examples
