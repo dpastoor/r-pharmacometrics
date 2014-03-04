@@ -13,7 +13,9 @@ Here is a brief overview:
 
 TODO: test tag here
 
-**apply** - is used to evaluate a function over the margins of a matrix/array. It can apply a function by dimension (row/col).  
+## apply
+
+Used to evaluate a function over the margins of a matrix/array. It can apply a function by dimension (row/col).  
 
 `apply` takes the following arguments: 
 * `X` - input
@@ -35,7 +37,9 @@ Notice:
 *tidbit* - apply is a good opportunity to use colMeans/colSums and rowMeans/rowSums - they are significantly faster, especially for large data structures.
 
 
-**lapply** works to apply a function to each element in the list and *returns a list back*
+## lapply
+
+Works to apply a function to each element in the list and *returns a list back*
 
 `lapply` takes the following arguments:
 * `X` - input
@@ -48,7 +52,9 @@ lapply(Theoph, range)
 
 Given that a dataframe is a list with dimensions - lapply can easily step throuh the columns and apply your function and returns a list.
 
-**sapply** is similar to lapply, the biggest difference is it attempts to simplify the result.
+## sapply
+
+sapply is similar to lapply, the biggest difference is it attempts to simplify the result.
 
 ```{r }
 lapply(Theoph, range)
@@ -66,9 +72,13 @@ Generally, the "rules" for `sapply` can be thought-of as:
 * Result list where every elemtn is same length - returns a matrix
 * Neither of above - returns list
 
-**vapply** - preferred over sapply due to minor speed improvement and better consistency with return types. Can read more about it on [stack overflow here](http://stackoverflow.com/questions/12339650/why-is-vapply-safer-than-sapply)
+## vapply
 
-**tapply** is used to apply functions to subsets of a vector. I will briefly give some detail, though my person preference is to use `plyr` commands or `split` when I'm dealing with subsets.
+ preferred over sapply due to minor speed improvement and better consistency with return types. Can read more about it on [stack overflow here](http://stackoverflow.com/questions/12339650/why-is-vapply-safer-than-sapply)
+
+## tapply
+
+Used to apply functions to subsets of a vector. I will briefly give some detail, though my person preference is to use `plyr` commands or `split` when I'm dealing with subsets.
 
 `tapply` takes the following arguments: 
 * `X` - input
@@ -91,9 +101,12 @@ tapply(Theoph$conc, Theoph$Subject, mean)
 
 If speed is of the essence - `tapply` does perform well - for some minor benchmarks it proved to be ~ 7x faster than plyr - though take that with a grain of salt as it was the difference between 0.19 and 1.3 seconds. Hadley Wickham is also coming out with his new `dplyr` package that should increase the speed of `plyr`-style commands substantially.
 
-**reapply** - metrumrg function - similar to `tapply` but adds some additional functionality, including a `where` option to restrict calculations in domain of `x`.
+## reapply
+
+ metrumrg function - similar to `tapply` but adds some additional functionality, including a `where` option to restrict calculations in domain of `x`.
 
 ```{r }
-with(theoph,reapply(conc,Subject,mean,where=Time!=0,na.rm=TRUE))
+library(metrumrg)
+with(Theoph,reapply(conc,Subject,mean,where=Time!=0,na.rm=TRUE))
 ```
 

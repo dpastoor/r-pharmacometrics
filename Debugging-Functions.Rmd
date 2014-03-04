@@ -26,19 +26,19 @@ TOCHANGE: change rmse example slightly to make it more 'real'
 
 ```{r }
 deviation <- function(x)x-mean(x)
-squared <- function(x)x
-**
-2
-root <- function(x)x
-**
-0.5
+squared <- function(x) x**2
+root <- function(x) x**0.5
 values <- c(1,'NA',3,4,5)
-root(mean(squared(deviation(values))))
+# would get an error
+# issue with knitting if let error run
+#root(mean(squared(deviation(values))))
 
 traceback()
 ```
 
-```{r }
+```{r, eval = F }
+# what is wrong with this example?
+# hint think of the type of variables
 j <- function(i = 5) {
   if (i == 1) "a" + 1
   j(i - 1)
@@ -60,17 +60,20 @@ A couple of the important commands to know are:
 `browser()` is helpful to use while building a function if you would like to check what is going on each time the function is called. 
 
 ```{r}
-my_fun <- function(x)
+my_fun <- function(x) {
 # do some stuff ...
 browser()
 ## do more stuff
+}
 ```
 
 For the above example, when `my_fun` is run, the browser will be launched at the point where it is called in the function and you can check the current status of the function environment.
 
 TODO: add example use for browser inside function
 
-## debugging example time TODO: snap-shot examples for future references
+## debugging example time 
+
+TODO: snap-shot examples for future references
 
 while debugging a couple things you can use to navigate
 
@@ -109,6 +112,8 @@ sim_number <- function(x) {
 rep_maker <- function(df, x) {
     cat("You are creating:", x, "copies")
     outputvector <- numeric(length(df)*x)
-    lapply(1:x function(x))  #imagine simulation function here instead
+    lapply(1:x, function(x) {
+    #imagine simulation function here instead
+})  
 }
 ```

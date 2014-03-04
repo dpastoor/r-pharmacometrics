@@ -37,15 +37,15 @@ One major goal of reproducible research is a final report should not include num
 
 For example, I would not write: In the Theophylline dataset there are 12 unique subjects. Instead, I can use in-line code evaluation to write:
 
-```
+```{r, eval = FALSE}
 There are `r length(unique(Theoph$Subject))` individuals in the dataset
 ```
 
 Which evaluates to:
 
-```{r]}
+
 There are `r length(unique(Theoph$Subject))` individuals in the dataset
-```
+
 
 This can be extended to handle output from models, summary statistics, etc.
 

@@ -34,7 +34,7 @@ A **Type/Mode** indicates how R stores the information in memory
 * list of pointers
 * function
 
-###table of examples### (ie page 96 R cookbook)
+TODO: table of examples (ie page 96 R cookbook)
 
 The term **Mode** and **Type** are virtually interchangeable - from here out we will use the term **Type** as it is more commonly discussed. ('mode' was inherited mostly from S/S-plus nomenclature/definition)
 

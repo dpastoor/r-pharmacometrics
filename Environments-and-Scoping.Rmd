@@ -47,7 +47,7 @@ For example: `our_package::doStuff()` will immediately look to `our_package` wit
 
 To better understand the interaction between environments there are **scoping rules** that help define behavior
 
-## What is 'Scoping'
+## What is Scoping
 
 Scoping is a ruleset used to lookup symbol (variable) values when they are called. Each language handles this differently (though most OO-lanuages handle them very similarly)
 
@@ -103,9 +103,8 @@ This behavior is expected when a function is defined in the global environment, 
 ### Environment Where Function Created
 But what happens if you define a function inside another function?
 
-```{r }
+```{r, error = TRUE}
 library(pryr)
-
 power <- function(pow) {
     exp <- function(x) {
         x^pow
@@ -130,6 +129,7 @@ parent.env(environment(cube))
 get("pow", environment(cube))
 get("pow", environment(square))
 get("pow", environment(power))
+
 
 pow <- 10
 get("pow", environment(cube))
@@ -184,7 +184,8 @@ f()
 
 It returns the same value as every time a function is called a new environment is created to host execution.
 
-### A "Pharmacometric" Example
+### A Pharmacometrics Example
+
 Predict what will the results will be: 
 
 Situation 1: Define `f` and `g` separately from one another

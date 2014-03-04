@@ -1,4 +1,4 @@
-Rmd "Lab Notebook"
+Rmd Lab Notebook
 ========================================================
 
 This documentation will eventually grow to a more complete resource of some "better" practices and examples for how to design and maintain an Rmd lab notebook.

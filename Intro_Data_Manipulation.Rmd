@@ -197,7 +197,7 @@ The moral of the story, is make sure you know what is going on under the hood - 
 What's wrong with this subsetting command?
 ` dosingdf <- df[unique(df$ID),]`
 
-#TO make # quick and easy give harder ones later
+TODO: quick and easy give harder ones later
 
 
 ## Data Manipulation
@@ -216,7 +216,9 @@ Quick renaming of columns can be easily accomplished using the plyr `rename` com
 
 ```{r }
 library(plyr)
-rename(Theoph, c("Subject" = "ID"))
+names(Theoph)
+Theoph <- rename(Theoph, c("Subject" = "ID"))
+names(Theoph)
 ```
 
 This can also be done directly without plyr, however is a bit more verbose
@@ -280,7 +282,7 @@ The general relationship between **key columns** and other columns is:
 
 > Key columns should represent unique objects (persons, events) and the other columns should characterize these objects
 
-R does not explicitly recognize keys - it is up to keep track.
+R does not explicitly recognize keys - it is up to you to keep track. Keys become increasingly important when delving into advanced data manipulation.
 
 ### Ordering and expand.grid()
 The concept of keys can help us think about the structure of the dataset when we deal with ordering.

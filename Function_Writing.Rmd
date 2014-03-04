@@ -75,7 +75,7 @@ add_fun2(6, 3)
 
 If no default is defined, the function will halt and give you an error requesting what to do with the missing argument value
 
-```{r }
+```{r, error = TRUE }
 add_fun2(y = 3)
 ```
 
@@ -260,7 +260,7 @@ Hint: maybe something involving seq()
 ### Lists of Functions
 One way to store sets of functions is to put them in lists. Instead of a single function returning a list of results, you can actually store the functions themselves in a list for later re-use. 
 
-```{r }
+```{r, eval = FALSE }
 means <- list(
 normal = function(x) mean(x),
 geometric = function(x) ...,
@@ -330,7 +330,7 @@ We touched on `lapply`, lets combine our dataframes into a list a
 
 **SIDE TRICK** `df[] <- lapply(df, our_fun)` - using `df[]` will give us back a dataframe instead of a list from `df <- lapply(df, our_fun)`
 
-```{r }
+```{r, eval = FALSE }
 df_list <- list(df1, df2, df3, df4, df5)
 df_NOBQL <- lapply(df_list, BQL_NA)
 ```
