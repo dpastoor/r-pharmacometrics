@@ -98,6 +98,15 @@ kable(AUC_df, , digits = 2)
 
 QUESTION: can digits be specified for certain columns only?
 
+## Adding Table of Contents
+A basic table of contents can be easily added through the options argument with knit2html
+
+Calling knit2html is equivalent to clicking on the `Knit HTML` button in Rstudio
+```
+knit2html("foo.Rmd", options = c("toc", markdown::markdownHTMLOptions(TRUE)))
+```
+
+
 TODO: controlling table style via css
 
 TODO: add xtable/pander options
