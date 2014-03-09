@@ -38,7 +38,10 @@ The syntax is `opts_chunk$set(<options-you-want,...>)`
         * digits = # digits to report
 
 ## Showing/Hiding Output Options
-* `echo`
+* `echo` - can take a TRUE/FALSE argument for whether to display the code as well as the output (default, TRUE) or just the output (FALSE) **or** can specify certain lines you would like to display
+    - `echo=1:2` would display lines 1 and 2 only
+    - note: line numbers are based on *expressions* rather than completed lines
+        + see [here](http://stackoverflow.com/a/22274704/2773255) for more details
 * `results`
     * `asis`
     * `hide`
@@ -62,14 +65,13 @@ Do have some nice granular control options however
 ## Cross-Referencing
 
 ```
-```{r my-theme, eval=FALSE}
+{r my-theme}
 theme(axis.text.x = element_text(size = 18),
 )
 ```
-```
 
 Then in later chunk
-```{r, eval = FALSE}
+```
 qplot(conc, Time, data = Theoph, color = Subject) + <<my-theme>>
 ```
 
