@@ -335,6 +335,7 @@ df_list <- list(df1, df2, df3, df4, df5)
 df_NOBQL <- lapply(df_list, BQL_NA)
 ```
 
+can you give an extra example about .....
 ### Assignment
 - extend BQL_NA to allow us to pass different character strings for what how the LLOQ was defined
 - BONUS: likewise, extend it to:   
