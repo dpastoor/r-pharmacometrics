@@ -340,3 +340,13 @@ df_NOBQL <- lapply(df_list, BQL_NA)
 - BONUS: likewise, extend it to:   
     - handle any column 'conc' regardless of capitalization
     - handle any concentration column name (conc, concentration, DV, ...)
+
+
+## Error handling
+TODO: add more about error handling
+
+### try and tryCatch
+TODO: handling if an internal function gives and error etc
+pg. 110 R in a nutshell 
+
+
