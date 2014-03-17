@@ -301,3 +301,34 @@ dose
 This is especially dangerous as it can introduce dependencies between functions that aren't immediately apparent! This should only be used in extremely specific circumstances. Frankly, in virtually all situations you are better off attacking the problem from a different angle if the only way to get the behavior you want is to use `<<-`. 
 
 TODO: give example of when <<- used
+
+
+## Working with Environments
+TODO pg. 102 R in a nutshell tables for manipulating R environment objects
+
+- assign
+- get
+- exists
+- objects
+- remove
+- search
+- searchpaths
+- attach
+- detach
+- emptyenv
+- parent.env
+- baseenv
+- globalenv or .Globalenv
+- environment
+- new.env
+- sys.call
+- sys.frame
+- sys.nframe
+- sys.function
+- sys.parent
+- sys.calls
+- sys.frames
+- sys.parents
+- sys.on.exit
+- sys.status
+- parent.frame
