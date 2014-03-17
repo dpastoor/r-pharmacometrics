@@ -31,7 +31,17 @@ add_fun(2, y = 10)
 
 To understand this behavior better we need to understand **environments**
 
+## Environments
 **Environments** are R objects that contain the sets of symbols available in a given context, the objects associated with these symbols, and a *pointer* to the parent environment. The overall purpose of an environment is to bind a set of names to values. Every environment has a parent environment (expect for one env - the *empty environment*), and can also have multiple "child" environments. 
+
+For example, if you enter the statement
+
+```
+DOSE <- 100
+```
+
+it assigns the symbol `DOSE` to a vector object of length one with a value of `100` in the 
+global environment.
 
 All symbols and objects in an environment are called a **frame**.
 
@@ -41,9 +51,59 @@ The *global environment* is always the first element of the search list, and the
 
 When a new library is loaded, the namespace of the package is assigned to the 2nd position in the search list and everything else is shifted down.
 
-Hence, if two packages each have a function `doStuff()`, if `doStuff()` is called, R will search and find the `doStuff()` function in the last loaded package and use it. To force the use of a symbol associated with a specific package you can use `::`
+For example, given:
+
+``` 
+library(metrumrg)
+library(PKPDmisc)
+library(nlme)
+```
+
+The search list will be:
+
+1. global environment
+2. nlme
+3. PKPDmisc
+4. metrumrg
+5. base
+
+If two packages each have a function `doStuff()`, if `doStuff()` is called, R will search and find the `doStuff()` function in the last loaded package (earliest on the search list) and use it. To force the use of a symbol associated with a specific package you can use `::`
 
 For example: `our_package::doStuff()` will immediately look to `our_package` without searching if `doStuff()` was available in other environments.
+
+This can be an issue when newer packages (or your own functions) are loaded alongside older packages that have function(s) with the same name.
+
+The new package `dplyr` developed by hadley wickham is a great example. `dplyr` is 
+designed to be a more robust and fast data manipulation tool to improve on his previous
+`plyr` package. The packages have many functions with the same name - `summarise`, `transform`, etc. If both packages are loaded at once, trying to use `summarise` will result in a different outcome depending on which package was loaded first.
+
+```
+library(plyr)
+library(dplyr)
+```
+
+Since dplyr is loaded *after* plyr, it will be found in the search list first, therefore the 
+dplyr version of the function will be called.
+
+```
+library(dplyr)
+library(plyr)
+```
+
+Will result in the plyr version being called.
+
+```
+dplyr::summarise(...)
+```
+
+Will force the dplyr version of summarise regardless of when each package was loaded.
+
+If you are not careful, this can cause big headaches on larger projects if manually loading
+packages and you try to re-do your analysis later and your functions that seemingly worked are
+now either crashing or giving incorrect output. 
+
+A good rule-of-thumb to follow is if there is a possibility for this to occur then
+explicitly call which package you want a function to be called from.
 
 To better understand the interaction between environments there are **scoping rules** that help define behavior
 
@@ -72,7 +132,7 @@ Two consequences of lexical scoping in R is all objects must be stored in memory
 
 ## Function Environments
 
-A function + environment combination is called a **closure**
+A `function` + `environment` combination is called a **closure**
 
 Each function is associated with four distinct environments 
 * environment where function exists
