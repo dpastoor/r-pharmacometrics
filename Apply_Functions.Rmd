@@ -1,5 +1,9 @@
-Apply Functions
-========================================================
+---
+title: "Apply Functions"
+author: "Devin"
+date: "September 20, 2014"
+output: html_document
+---
 
 TODO: flesh out and add more concrete PMTRX examples
 
