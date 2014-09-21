@@ -1,5 +1,9 @@
-Introduction to Data Manipulation
-========================================================
+---
+title: "Data Manipulation"
+author: "Devin"
+date: "September 20, 2014"
+output: html_document
+---
 
 You've made it through the theoretical aspects and you're close to being ready to start getting your hands dirty. All of you have most likely used every single element of this module, but now we will reassess these operators and behaviors to get a deeper understanding - thus allowing us to wield them more effectively.
 
@@ -56,7 +60,7 @@ Likewise, given data frames are lists of column, `[[` can be used to extract a c
 
 There are two additional important distinctions between `$` and `[[`
 
-1. $ can not be used for column names stored as a variable:
+1. `$` can not be used for column names stored as a variable:
 
 ```{r }
 id <- "Subject"
@@ -102,7 +106,7 @@ An easy way to think about it:
 
 One thing to note: S3 and S4 objects can override the standard behavior of `[` and `[[` so they behave differently for different types of objects. This can be useful for controlling simplification vs preservation behavior.
 
-## LETS LOOK AT SOME EXAMPLES
+### Try it yourself
 
 - create a vector, list, and dataframe. 
 - Extract elements using [, [[, and $
@@ -192,12 +196,10 @@ hint: look @ ID numbers
 
 The moral of the story, is make sure you know what is going on under the hood - sometimes you can get the 'right' answer for the wrong reasons.
 
-## Some Subsetting Practice Problems
-
+#### Pop quiz question
 What's wrong with this subsetting command?
 ` dosingdf <- df[unique(df$ID),]`
 
-TODO: quick and easy give harder ones later
 
 
 ## Data Manipulation
@@ -210,18 +212,18 @@ Our goal for this section is to be able to:
 
 ### renaming columns
 
-Quick renaming of columns can be easily accomplished using the plyr `rename` command with the structure:
+Quick renaming of columns can be easily accomplished using the PKPDmisc `rename` command (originally from plyr) with the structure:
 
 `dataframe <- rename(dataframe, c("oldcolname1" = "newcolname1", ...))`
 
 ```{r }
-library(plyr)
+library(PKPDmisc)
 names(Theoph)
 Theoph <- rename(Theoph, c("Subject" = "ID"))
 names(Theoph)
 ```
 
-This can also be done directly without plyr, however is a bit more verbose
+This can also be done directly without PKPDmisc, however is a bit more verbose
 
 ```{r }
 names(Theoph)[names(Theoph)=="Subject"] <- "ID"
@@ -280,152 +282,8 @@ A basic dosing dataset key may be as simple as ID, however for a cross-over clin
 
 The general relationship between **key columns** and other columns is:
 
-> Key columns should represent unique objects (persons, events) and the other columns should characterize these objects
+> Key columns represent unique objects (persons, groups, sites, etc) and the other columns should characterize these objects 
 
-R does not explicitly recognize keys - it is up to you to keep track. Keys become increasingly important when delving into advanced data manipulation.
+For example, a person might be the key column for different concentration, time, wt, etc measurements, thus if you are 'extracting' information you'd likely want it based on the key column, so for example by max concentration by individual)
 
-### Ordering and expand.grid()
-The concept of keys can help us think about the structure of the dataset when we deal with ordering.
-
-The `order` function in R allows us to easily sort data in ascending or descending order.
-
-If we wanted to sort a dataset by ID and Time we could do so via:
-
-`df <- df[order(df$ID, df$Time),]`
-
-It is a good habit to sort raw data (especially if its eventually going into phoenix or nonmem)
-
-The way `order` works with multiple arguments is it sorts starting with the first argument, each time it runs into a 'tie' it looks for subsequent arguments for how to break the 'tie'
-
-For example, if you have 5 time observations associated with an ID, if you do:
-`order(df$ID, df$TIME)` it will start sorting by `ID`, notice it has multiple results for the same ID value, it will then use `TIME` to continue the sort.
-
-`order` is quite powerful with the `expand.grid` function. 
-
-
-
-### Additional manipulations 
-
-To quickly note - columns and rows can be removed simply by calling their index and assigning it to NULL
-
-`Theoph$Subject <- NULL` or `Theoph[Theoph$Subject ==1,] <- NULL`
-
-`with` - 'opens up' the input within the function to allow us access columns similar to `attach()` but only in the function's temporary environment. Can be very useful for with modeling.
-
-```{r eval = F}
-##get better example
-library(MASS)
-with(anorexia, {
-    anorex.1 <- glm(Postwt ~ Prewt + Treat + offset(Prewt),
-                    family = gaussian)
-    summary(anorex.1)
-})
-```
-
-```{r }
-with(Theoph, summary(conc))
-# same as
-summary(Theoph$conc)
-```
-
-`within` - allows us access inside a data structure to do things *within* it
-
-``` {r }
-id_time <- data.frame(expand.grid(ID = 1:3, TIME = 0:10))
-head(id_time)
-id_time <- id_time[order(id_time$ID, id_time$TIME),]
-head(id_time)
-df <- within(id_time, {
-  DV <- 0
-  AMT <- 0
-  DOSE <- 150
-  MDV <- 0
-})
-head(df)
-```
-
-ie will have column order MDV, DOSE, AMT, DV add by column from bottom up going outward
-
-**notice the structure of a `within` call, there are no `,`s inside the brackets when creating multiple columns
-
-Let's try to create a simulation data frame
-
-```{r }
-df <- data.frame(ID = 1:5)
- df <- within(df, {
-   UCTX <- 0
-   # initialize amount to NA so will be read in as blank to phoenix
-   AMT <- NA
-   # initialize doses
-   DOSE <- numeric()
-   ADDL <- NA
-   II <- NA
- })
-str(df)
-```
-
-Check out the differences between AMT/ADDL/II columns and DOSE
-
-`within` can also be used for logical subsetting in a concisely written format:
-
-```{r }
-Theoph$MDV <- 1
-Theoph <- within(Theoph, MDV[Subject == 2 & conc == 0] <- 0)
-```
-
-## Assignments
-- using `expand.grid` and `order` create an `id_time` dataset (dataframe)
-- within the dataset add another column `Measurement` that is a set of noise generated with `rnorm` or `runif`
-- use `with` to subset Theoph for ID's 1 and 2 only
-- generate a new conc column for Theoph
-
-
-
-
-## Merging Data
-
-Let's create some sample data to merge
-
-TOCHANGE: modify sample merge data off metrum-esque
-
-```{r }
-dose <- data.frame(
-    subject = rep(letters[1:3], each = 2),
-    time = rep(c(1,3),3),
-    amount = rep(c(40,60,80), each = 2)
-    )
-
-pk <- data.frame(
-    subject = rep(letters[1:3], each = 4),
-    time = rep(1:4,3),
-    conc = signif(rnorm(12),2) + 2
-    )
-
-demo <- data.frame(
-    subject = letters[1:4],
-    race = c('asian','white','black','other'),
-    sex = c('female','male','female','male'),
-    weight = c(75, 70, 73, 68)
-    )
-```
-
-You can merge two data frames with the `merge` command. Merge looks for **keys** to match up which rows and columns can be matched. `merge` can only combine two data frames at once, so in order to merge more than that, nested `merge` calls must be used
-
-What is the order of merging here?
-```
-merge(merge(x, y), z)
-```
-
-Let's look at some of the merge options
-
-`?merge`
-
-Can do more advanced merges - lets merge everything but not include demographic data from subject 3
-
-```{r }
-merge(
-    merge(dose, pk, all=TRUE), 
-    demo[-3,], 
-    all.x=TRUE 
-)
-```
+R does not explicitly recognize keys - it is up to you to keep track. Keys become increasingly important when delving into advanced data manipulation. Using dplyr `group_by` makes working with keys much more straightforward than in base R.
