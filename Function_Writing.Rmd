@@ -1,17 +1,23 @@
-Function Writing
-========================================================
+---
+title: "Functions"
+author: "Devin"
+date: "Sunday, October 26, 2014"
+output: html_document
+---
 
 This section will be our bread and butter as functions provide the means for us to start to harness R's power to reduce duplication of code and increase our efficiency.
 
 Functions in R are known as "first class objects" - they can be treated like other R objects.
 
  They can be:
-*  created without a name
-*  assigned to variables
-*  stored in lists
-*  returned from functions
-*  passed as arguments to other functions
-*  Essentially, you can do anything with a function that you can with a vector.
+ 
+* created without a name
+* assigned to variables
+* stored in lists
+* returned from functions
+* passed as arguments to other functions
+
+Essentially, you can do anything with a function that you can with a vector.
 
 In R, a function is defined with the following syntax:
 
@@ -19,7 +25,7 @@ In R, a function is defined with the following syntax:
 
 * `function` is a reserved word to initialize creation.
 * **Arguments** are sets of formal argument names that will be defined in the function body.
-    * **Formal arguments** are arguments included in the function definition
+* **Formal arguments** are arguments included in the function definition
 * The **body** is simply the code that the function will execute
 
 A function can be written in one line as shown above, however, to encapsulate multiple lines brackets `{}` must be used.
@@ -82,21 +88,25 @@ add_fun2(y = 3)
 When you have multiple arguments - how does a function know which one to use for the various arguments?
 
 ### Argument Matching
+
 Like all things programming - R has specific rules for how it handles argument matching for functions.
 
 Here is a basic overview:
+
 * arguments can be matched positionally or by name
 * you can mix positional and named matching
     * when an argument is matched by name it is "removed" from the argument list - the remaining arguments are matched by order
 * arguments can be partially matched
 
 The overall order of operations for argument matching:
+
 1) Check exact match for named argument
 2) Check for partial match for named argument
 3) Check for positional match
 4) Any remaining unmatched formal arguments are "taken up" by `...`
 
 **Caveat(s)** 
+
 * Any arguments *after* `...` are only matched exactly
 * Tags partially matching multiple arguments will result in an error
 

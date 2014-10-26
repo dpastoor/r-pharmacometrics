@@ -1,6 +1,9 @@
-Debugging Functions
-==============================
-TODO: split to different headers (debugging/int-function-writing)
+---
+title: "Debugging Functions"
+author: "Devin"
+date: "Sunday, October 26, 2014"
+output: html_document
+---
 
 There are 3 basic ways to indicate to an end-user that something isn't right inside a function - be it due to an improper calculation or improper input.
 
@@ -51,7 +54,7 @@ interactive debugging through `browser()` can be helpful to see what is going on
 
 A couple of the important commands to know are:
 
-* **<RET>** Go to the next statement if the function is being debugged. Continue execution if the browser was invoked.
+* **<RET>/Enter** Go to the next statement if the function is being debugged. Continue execution if the browser was invoked.
 * **c or cont** - Continue execution without single stepping.
 * **n** - Execute the next statement in the function. This works from the browser as well.
 * **where** - Show the call stack.

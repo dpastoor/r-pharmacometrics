@@ -1,7 +1,9 @@
-Pragmatic Programming
-========================================================
-
-TOCHANGE: examples taken from tao te programming
+---
+title: "Pragmatic Programming"
+author: "Devin"
+date: "Sunday, October 26, 2014"
+output: html_document
+---
 
 Uwe Ligges maxim:
 
@@ -17,10 +19,11 @@ Computers are cheap, and thinking hurts
 
 Solve the Problem Here are four steps for general problem solving (though of course we have programming in mind). 
 
-List the starting ingredients 
-State the desired results 
-Break the journey from step 1 to step 2 into subproblems 
-Put the subproblem solutions together 
+1. List the starting ingredients 
+2. State the desired results 
+3. Break the journey from step 1 to step 2 into subproblems 
+4. Put the subproblem solutions together 
+
 This is a recursive algorithm --- we do the same four steps on each of the subproblems, and on their subproblems.
 
 The hard part is step 3 (but sometimes step 2 is murky). This is another case of abstraction, of carving up reality. There may be multiple possible combinations of subproblems --- your task is to create a reasonable combination. Avoid feeling that you must solve the whole thing in one go. That's the recipe for being overwhelmed and stuck.
