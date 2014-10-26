@@ -82,7 +82,7 @@ Generally, the "rules" for `sapply` can be thought-of as:
 
 ## tapply
 
-Used to apply functions to subsets of a vector. I will briefly give some detail, though my person preference is to use `plyr` commands or `split` when I'm dealing with subsets.
+Used to apply functions to subsets of a vector. I will briefly give some detail, though my person preference is to use `dplyr` commands with `dplyr::group_by` when I'm dealing with subsets. It is good to know, however, in case you are unable to install dplyr for whatever reason.
 
 `tapply` takes the following arguments: 
 * `X` - input
@@ -94,23 +94,11 @@ Used to apply functions to subsets of a vector. I will briefly give some detail,
 **note**: INDEX must be a factor or list of factors - if not any value passed in will be coerced to factor.
 
 ```{r }
-with(Theoph, tapply(conc, Subject, mean))
+with(Theoph, tapply(conc, Wt, mean))
 ```
 
 Without using with:
 
 ```{r }
-tapply(Theoph$conc, Theoph$Subject, mean)
+tapply(Theoph$conc, Theoph$Wt, mean)
 ```
-
-If speed is of the essence - `tapply` does perform well - for some minor benchmarks it proved to be ~ 7x faster than plyr - though take that with a grain of salt as it was the difference between 0.19 and 1.3 seconds. Hadley Wickham is also coming out with his new `dplyr` package that should increase the speed of `plyr`-style commands substantially.
-
-## reapply
-
- metrumrg function - similar to `tapply` but adds some additional functionality, including a `where` option to restrict calculations in domain of `x`.
-
-```{r }
-library(metrumrg)
-with(Theoph,reapply(conc,Subject,mean,where=Time!=0,na.rm=TRUE))
-```
-
