@@ -1,5 +1,10 @@
-Environments and Scoping Rules
-==============================
+---
+title: "Environment and Scoping Rules"
+author: "Devin"
+date: "Sunday, October 26, 2014"
+output: html_document
+---
+
 Continued from Basic Function Writing
 
 Until this point, we have not addressed how R stores and references objects. This underlying behavior is incredibly important to the end-users. In addition, there are some important behaviors that play a role in more complex R-based projects.
@@ -11,9 +16,10 @@ dose <- 100
 dosing_col <- function(df, dose) {
     df[,"dose"] <- dose 
 }
-# TOCHANGE: add real ourDF and change to eval = T
 
-dosing_col(ourDF, dose = 500)
+ourDF <- data.frame(ID = 1:3)
+ourDF <- dosing_col(ourDF, dose = 500)
+ourDF
 ```
 How does R know to to use the value of 500 for dose, rather than 100.
 
@@ -32,7 +38,9 @@ add_fun(2, y = 10)
 To understand this behavior better we need to understand **environments**
 
 ## Environments
-**Environments** are R objects that contain the sets of symbols available in a given context, the objects associated with these symbols, and a *pointer* to the parent environment. The overall purpose of an environment is to bind a set of names to values. Every environment has a parent environment (expect for one env - the *empty environment*), and can also have multiple "child" environments. 
+
+**Environments** are R objects that contain the sets of symbols available in a given context, the objects associated with these symbols, and a *pointer* to the parent environment. In laymans terms, an environment is a place to store both objects themselves, and how they are related. The overall purpose of an environment is to bind a set of names to values. Every environment has a parent environment (expect for one env - the *empty environment*), and can also have multiple "child" environments. 
+#### TODO: reword environment definitions
 
 For example, if you enter the statement
 
@@ -40,8 +48,7 @@ For example, if you enter the statement
 DOSE <- 100
 ```
 
-it assigns the symbol `DOSE` to a vector object of length one with a value of `100` in the 
-global environment.
+it assigns the symbol `DOSE` to a vector object of length one with a value of `100` in the global environment.
 
 All symbols and objects in an environment are called a **frame**.
 
@@ -66,6 +73,8 @@ The search list will be:
 3. PKPDmisc
 4. metrumrg
 5. base
+
+One situation where the order of the search list comes into play is when two packages both have a function with the same name. 
 
 If two packages each have a function `doStuff()`, if `doStuff()` is called, R will search and find the `doStuff()` function in the last loaded package (earliest on the search list) and use it. To force the use of a symbol associated with a specific package you can use `::`
 
@@ -248,8 +257,9 @@ It returns the same value as every time a function is called a new environment i
 
 Predict what will the results will be: 
 
-Situation 1: Define `f` and `g` separately from one another
+We have a function `f()` that simply prints the value stored in the variable dose.
 
+Situation 1: Define `f` and `g` separately from one another
 ```{r eval = F}
 dose <- 100
 f <- function() print(dose)
