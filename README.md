@@ -1,3 +1,7 @@
+
+### This repo is depreciated in favor of moving to hosting it via gitbook in the r-pharmsci repo. 
+
+
 R for Pharmacometrics
 =============
 
